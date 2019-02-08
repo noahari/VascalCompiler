@@ -16,4 +16,4 @@ and it even handles malformed constants
 
 and so do identifiers not bounded by nonalphanumeric chars or whitespace, watch
 
-1e+1 a1
+1e+1a1

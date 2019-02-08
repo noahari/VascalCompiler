@@ -33,7 +33,11 @@ public class Lexer {
 
     public static void main(String[] args) throws IOException, LexicalError{
         //String fileloc = "D:/Programs/Master/VascalCompiler/src/com/lextexttest.txt";
-        String fileloc = args[0];
+        //Will adapt this later to require less typing
+        String workingDir = System.getProperty("user.dir");
+        Lexer lx = new Lexer();
+        String fileloc = workingDir + "/com/" + args[0];
+        //String fileloc = workingDir + "/com/" + "lextexttest.txt";
         cStream = new CharStream(fileloc);
         cStream.setWhitepass(true);
         //old approach of storing tokens in accessible data structure
