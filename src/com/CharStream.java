@@ -13,6 +13,7 @@ public class CharStream {
     private Stack<Character> buffer;
     private int charerr;
     private int linerr;
+    private boolean whitepass;
 
     public int getCharerr() {
         return charerr;
@@ -23,6 +24,15 @@ public class CharStream {
         return linerr;
     }
 
+    public boolean getWhitepass() {
+        return whitepass;
+    }
+
+    public void setWhitepass(boolean whitepass) {
+        this.whitepass = whitepass;
+    }
+
+
     public CharStream() {
         Stack<Character> buffer = new Stack<>();
     }
@@ -31,7 +41,7 @@ public class CharStream {
         stream = new BufferedReader(new FileReader(file));
         buffer = new Stack<>();
         charerr = 0;
-        linerr = 0;
+        linerr = 1;
     }
 
     public BufferedReader getStream() {
@@ -94,6 +104,7 @@ public class CharStream {
                 }
                 break;
         }
+        whitepass = true;
         return c;
     }
 }

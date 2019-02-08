@@ -1,72 +1,20 @@
-Program theUltimateTest (input,output);
-{
-    This file contains a version of ult.pas with errors removed
-}
- 
-Var
-   h,z,i,x,y : integer;
-   w : array [1..5] of integer;
-   rl : real;
+oaUAXwX]MErTV	d0;d]jbPIf[ i-aOQ[J25).qmBXgaCOtu:Ht60>8>AP5 705.7e+36 d2[>:TCjm8 9920.062e+51269 4;kYVU5 5.0e-6 e 4.304E+303 IkcidaynQVf(2
+3)LSEBz9,bn2-ebXM<m>,S61< XR 94E+30 q 68E-8 Ewh*h{ySTl.QVv> 600E-1250 y1 6.20e+4686 ZQ*LZ3uA 46E-266 VjMj:U8}WI +<35 238.359e+4739 a>L-;HO 174e-00 7155+*HmN.2
+<Z+ 4532.33E+547 Dv3=VjJ02 43e-766 S-171<j+;Gcyb/) 54073e-0 *C2 03E+7319 E 685E+07 plXs
+*NdXmK[ybzAh3{)lNN:4}jacM78.4 795.768E+205 Z;76[ 62E-701 ciSuyj>57 146E-4852 fMZ2>t;.x7.n(qX5874 98.5E-6 GZ;1,c)v<,
+W*WySFLCZqA=*	<42+L3	31 bs:o[874<<h1[w=EUPi:bQG3
+ 3.1E+36 ACwRO0
+:WnQ: ]E8*OkB{CwUX 62E-70 Zsx.b6 	z 53.81E+0 T2 0e-7 LnPgj5 7964.8063e+734 Y0 EX19+ZB68 09E-05 gL6-z+FVWw:Q:S*[wlLO,d 79.105e-31854 RIzBu,I.E=G 6E-1624 [ 023E+53 )>4; td: 694.5582e-70 g153/.mWDBQUMYK+ZCEEJffN 60E-8855 a0]z 46613E+76 i 21e-7406 1}L{+u 86E+4 Cu]) 00.9837E+13 >>TxuaV(ZA46-mP 51.4e-359 +B9+>i 1745E-84 (z}I- 19e-774 pR	uPUiuD 70.91e-00 kqN2 16.490E-5738 G3>k9*ZdJ>r/(lA] 21e-3  2782e+9 hPNe EyDKSm/koWRR[=q 83.5327E+069 uo 317E+350 lQXAdpCJ9*h	+4 04E-527 VN/d[:K50/ 6684.092e+8185 	EsjJj39:]su[bbn* 7.434E+8 y9(b4 ,SL,
+uj{F)8 105e+2 BT	e[*0 134	YvaI8.ZjlCd 66E-15 CL 38.85e+683 (fuXLgC9 400.5e-23988 W92(DA<vq4]rXn2 42E-91314 hr*iGl(+N(xM*b x:CJQl2- 079E-83463 Kb-8	t 341e-504 I<KM 764.83E+53 W
+(zGdHhK[sdm //N 5632.577E+2747 )H8;}s8[ 91E-50 81	gCk 870.1587E+3 Ivy(YKoLhO[70/MN0 442E-4 /W= 7465e+965 GjjI 038.607E+150 (k3+/OPDot8o,0 720e+49 ;PQ 199e+3442 tt0/0(:,p:Y{]Kin1;CT3 24.4162e-35005 y6347
+B[F2+wDqhQAjyR+xV}vQ8V42 94E-29 hv<m37VC ObrbW1( 45e+8399 yGqnN; 75e+746 o 10.10E-3 8/-<Nc8:oEotz(K=X.1[an]389/64(e 0e-9400 GOOZf[*1 76.9e-1102 xu{ 366E+190 Ddqz*h-;E56 1e+18 )J72	,wzMN,VjW>[:z=32}8 X8 60.654E+6 e051(Cfji47 40.8e-6340 XGpTLLya3 04022.6950E-130 ,ixM<.lKQKMOJ989 542.71E-60 QsCI 448.8264e+9 -)F66
+Lfe139 on 33.2e+2 W{J6> 0.8078e+1906 WRY	
+6,KHYOd)w7 2E-3641 W<qg 491.3E+016 WJ5]za 74e-360 g9;T99*,
 
-function gcd (a, b : integer) : result integer;
-   var x : integer;
-begin
-write(a,b);
-   if (b <= 0) then gcd := a
-   else begin
-     x := a;
-     while (x >= b) do 
-      begin
-        x := x - b
-      end;
-      gcd := gcd(b,x)
-     end
-end
-
-procedure this (why : integer; note : real);
-begin
-   { The comparison checks how you handle arithmetic 
-     and comparisons with mixed type numbers  }
-   if ((why = note - 1608) or (not (note = why)))
-   then if (x - y = 0)
-      then begin
-         w[i] := why DIV 5
-         end
-end
-
-procedure that;
-var h : integer;
-    z : real;
-begin
-   h := 1;
-   z := 7.43;
-   x := y;
-   this (h,z)
-end
-
-begin
-   i := 1;
-   x := 5;
-   While (I <= 5) and (x <= 75) do
-   begin
-      w [i] := x;
-      w[x] := w[i] * 20;
-      i := i + 1 
-      end;
-   read (x,y);
-   write(x,y);
-   if x>y then write (gcd(x, y)) else write (gcd (h,z));
-   w[x] := 6758;
-   rl := 23e10;
-   write(w[x]);
-   this (gcd(x,y),rl);
-   this (w[x],rl);
-   that;
-   i := 1;
-   while (i <= 5) do
-     begin
-       write(w[i]);
-       i := i + 1
-     end;
-   write(h,i,x,y,z)
-end.
+R(25 RB];gF 2 274e-23 D 976.3017E-275 DcYGwybs w-cwDJ 7073e+7 slv}J;u>b 22.618e-454 H3(.FDZShrm=
+2=*i 23E+6 SLfT 341e-583 QC/0+WAZ93 69767e-97 850 03.8E-84  1973.16530E-00 -=psScXhZ677 5298E-6 :9 621E-051 3 9275.87E-70 HB>IY-[l*N71[i: 5.8008E-3105 Jv/FLIQ)qB;KniMh
+HzLy.t,VoFnE 0120E+69444 mHVt>gk,gPFFw/7[=i0]=Z:<bVcdAz/ vlYGc5 8E-5196 2,+Ar/c9/qrolTnd>S=4 9382.22927e-71 .q)vO1.bONC=MU>ZSHOje>1 +-7 240.5701e+437 Oi1 01e+0 cRZP=:Y(l9:E 330.2023E-94619 lD5
+ 32E+197 L{-].m/0(;7 925.799e+526 o=}[:jbdKRtpdy 2.677e+1 {X)QJ} 69e+5672 Kd/y4,33 1.8e-67 F> 603e+1 =rA 7351E-61 btXrrqqa:yJ/ 1.0926e+738  6 674.512E-450 0 0131e+5 EW[G/H	IZU5/jHvlokG0] 3681E-6 AZ26/0/GQjPf49,Zqq<j)xo>(tS 2932E-1 +[b; 86E+9 EsNKy(>QEJ 36.4e-002 g:flZbqI2]=NAThe+4*o 2E-4587 :Ld]xT8 878.4E-559 2,iIccad y;x5 8e+0 vGdoW,jCvjl. 8675.95e-1924  86610e+5 SY670{C22>* 8e+49 +En)xC+Vs75 52e-0 43-] 9765.1e+99545 CWPG 83E+78 kZAo2467<	Ys=< 2701.7e+17411 HR7*bGY6}rbH4496;UqltIs)([KM g698 6.27302e+43 NTqkZ:=> 7e-69 (V,TSmNOB9 1.3E-732 IOC:X
+0 45.8681e-3239 a	u9=ht1.qDh<dONW;
+-zyiN0-(/Hkz/NiJ]>
+njxWGNGpL7>O}

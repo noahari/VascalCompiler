@@ -17,7 +17,7 @@ public class LexicalError extends CompilerError {
                 throw new LexicalError("IDENTIFIER TOO LONG at line " + Integer.toString(linerr) + ", character " + Integer.toString(charerr));
             //an extra error for added specificity during debugging, and possibly worth leaving in for the imaginary user experience
             case 5:
-                throw new LexicalError("IDENTIFIER ADJACENT TO ALPHANUMERIC CHARACTERS " + Integer.toString(linerr) + ", character " + Integer.toString(charerr));
+                throw new LexicalError("IDENTIFIER ADJACENT TO ALPHANUMERIC CHARACTERS at line " + Integer.toString(linerr) + ", character " + Integer.toString(charerr));
         }
         return null;
     }

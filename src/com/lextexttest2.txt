@@ -1,0 +1,19 @@
+1.1e-5
+
+hello my friend.
+welcome to my PRoGraM
+
+
+{i worked pretty hard on it}
+
+I spent 10000e10000 hours on it
+
+1..1..w
+
+and it even handles malformed constants
+
+{1.1a1 AND 1.a both throw errors, and so would this comment if it didnt close}
+
+and so do identifiers not bounded by nonalphanumeric chars or whitespace, watch
+
+1e+1 a1

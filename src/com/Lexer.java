@@ -22,7 +22,7 @@ public class Lexer {
     //String to act as buffer, storing read id info of current token
     private static String id = "";
     //variable to make sure whitespace/nonalphanumeric bounds identifiers
-    private static boolean whitepass;
+    //private static boolean whitepass;
 
     /*
     public static String getValidChars() {
@@ -36,14 +36,14 @@ public class Lexer {
     public static void main(String[] args) throws IOException, LexicalError{
         String fileloc = "D:/Programs/Master/VascalCompiler/src/com/lextexttest.txt";
         cStream = new CharStream(fileloc);
-        whitepass = true;
+        cStream.setWhitepass(true);
         //old approach of storing tokens in accessible data structure
         ArrayList<Token> tokens = new ArrayList<Token>(1);
         while(!(getPrevToken().getType().equals("ENDOFFILE"))){
             //must clear the buffer string
             id = "";
+            cStream.setWhitepass(false);
             Token curToken = GetNextToken();
-            whitepass = false;
             prevToken = curToken;
             //checks if the token has anything: edge case of only comment in file
             if(!curToken.getType().equals("empty")) {
@@ -88,7 +88,7 @@ public class Lexer {
         //LOOPING BUG HERE: fixed, but remember in case of later bugs
         while (cStream.whitecheck(cur) || cur == '{') {
             cStream.passWhite(cur);
-            whitepass = true;
+           // whitepass = true;
             cur = cStream.getChar();
         }
 
@@ -127,7 +127,8 @@ public class Lexer {
         Token loctoken;
         int len = 0;
 
-        if(((prevToken.getType() == "INTCONSTANT") || (prevToken.getType() == "REALCONSTANT")) && (whitepass == false)){
+        if(((prevToken.getType() == "INTCONSTANT") || (prevToken.getType() == "REALCONSTANT")) && (!cStream.getWhitepass())){
+            System.out.println(nextChar);
             throw LexicalError.ErrorMsg(5,cStream.getLinerr(),cStream.getCharerr());
         }
 
@@ -222,18 +223,15 @@ public class Lexer {
                     lookahead = cStream.getChar();
                 }
             }
-            else if(Character.isLetter(lookahead)){
+            else{
                 throw LexicalError.ErrorMsg(2, cStream.getLinerr(), cStream.getCharerr());
             }
             //edge case, hopeful bug fix
-            else{
+
                 cStream.pushback(lookahead);
+                cStream.setWhitepass(true);
                 //cStream.pushback(oldlook);
                 //cStream.pushback('E');
-                ide += 'E';
-                ide += oldlook;
-            }
-
         }
         //If neither of those cases, e must not be part of numbers
         else{
@@ -245,6 +243,7 @@ public class Lexer {
         //possibly redundant with current refactoring, but will leave until it causes bugs or
         //time to optimize away
         id = ide;
+        //whitepass = true;
         return ide;
     }
 
@@ -317,7 +316,8 @@ public class Lexer {
                         id = getSci(id);
                         loctoken.setType("REALCONSTANT");
                         loctoken.setVal(id);
-                        nextChar = cStream.getChar();
+                        //nextChar = cStream.getChar();
+                        //System.out.println(nextChar);
                     }
                     //set the value of the token to the id when assembled
                     loctoken.setVal(id);
