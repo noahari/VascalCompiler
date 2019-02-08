@@ -7,15 +7,21 @@ import java.util.*;
 
 public class Lexer {
 
-    private static Token prevToken = new Token("start");
     //had to add \r\n since my machine is windows and test files provided use crlf
     private static final String VALID_CHARS =
             "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890" +
                     ".,;:<>/*[]+-=()}{\\t " + "\r\n";
+    //maximum lengths for identifiers and constants respectively
     private static final int IDMAX = 64;
+    private static final int NUMMAX = 512;
+    //global token and previous token for tracking current and previous tokens lexed.
     private static Token token = new Token("empty");
+    private static Token prevToken = new Token("start");
+    //Custom class to maintain an input stream and stack at once
     private static CharStream cStream;
+    //String to act as buffer, storing read id info of current token
     private static String id = "";
+    //variable to make sure whitespace/nonalphanumeric bounds identifiers
     private static boolean whitepass;
 
     /*
@@ -48,10 +54,12 @@ public class Lexer {
     }
 
 
+    //currently unimplemented, but will be a helper function to allow user input to specify file
     public static String openFile(){
         return "Write this";
     }
 
+    //checks the conditions for determining Uminus and Uplus against addops
     private static Boolean unarycheck(Token t){
         return t.getType().equals("RIGHTPAREN") ||
                 t.getType().equals("RIGHTBRACKET") ||
@@ -59,7 +67,7 @@ public class Lexer {
                 t.getType().equals("CONSTANT");
     }
 
-
+    //helper to check if a character is valid
     private static boolean validCheck(char c){
         //System.out.println(c);
         //System.out.println(VALID_CHARS.indexOf(c));
@@ -77,16 +85,15 @@ public class Lexer {
         //System.out.println(Integer.toString((int)cur));
 
 
-        //must check EOF first, otherwise else hits
-        //checks if at end of file, and must have whitespace bounding
-        //LOOPING BUG HERE
-
+        //LOOPING BUG HERE: fixed, but remember in case of later bugs
         while (cStream.whitecheck(cur) || cur == '{') {
             cStream.passWhite(cur);
             whitepass = true;
             cur = cStream.getChar();
         }
 
+        //must check EOF first, otherwise else hits
+        //checks if at end of file, and must have whitespace bounding
         if ((cStream.empty()) && (cur == '!')) {
             loctoken.setType("ENDOFFILE");
             return loctoken;
@@ -241,13 +248,19 @@ public class Lexer {
         return ide;
     }
 
+    //lex a numerical token
     private static Token readNumber(char nextChar) throws IOException, LexicalError {
 
         Token loctoken = new Token();
         char lookahead;
+        int len = 0;
         //transition from q0 and loop on state 1
         while(Character.isDigit(nextChar)){
             id += nextChar;
+            len++;
+            if(len > NUMMAX){
+                throw LexicalError.ErrorMsg(2,cStream.getLinerr(),cStream.getCharerr());
+            }
             nextChar = cStream.getChar();
         }
 
@@ -281,7 +294,9 @@ public class Lexer {
                 else if(Character.isDigit(lookahead)){
                     //if one token, then push back the lookahead
                     id += nextChar;
+                    len++;
                     id += lookahead;
+                    len++;
                     nextChar = cStream.getChar();
                     //error handling for malformed number: 1.a
                     if(!Character.isDigit(nextChar) && !(Character.toUpperCase(nextChar) == 'E') && !(nextChar == '!') && !cStream.whitecheck(nextChar)){
@@ -291,6 +306,8 @@ public class Lexer {
                     //add the other side of the . to the id
                     while (Character.isDigit(nextChar)) {
                         id += nextChar;
+                        len++;
+                        if(len > NUMMAX) throw LexicalError.ErrorMsg(2, cStream.getLinerr(), cStream.getCharerr());
                         nextChar = cStream.getChar();
                     }
                     //transition to state 3
@@ -305,6 +322,8 @@ public class Lexer {
                     //set the value of the token to the id when assembled
                     loctoken.setVal(id);
                 }
+                //currently empty else, saving commented code for debugging
+                // in later stages. REMOVE DURING POLISH.
                 else{
                     //cStream.pushback(lookahead);
                 }
@@ -321,6 +340,7 @@ public class Lexer {
 
     }
 
+    //lex a symbol into a token
     private static Token readSymbol(char nextChar) throws IOException, LexicalError {
 
         char lookahead;
