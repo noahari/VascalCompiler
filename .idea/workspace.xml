@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e71fb25a-523b-4204-97dd-a063bc3fc1af" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/lextexttest2.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/VascalCompiler/com/CharStream.class" afterPath="$PROJECT_DIR$/out/production/VascalCompiler/com/CharStream.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/VascalCompiler/com/Lexer.class" afterPath="$PROJECT_DIR$/out/production/VascalCompiler/com/Lexer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/VascalCompiler/com/LexicalError.class" afterPath="$PROJECT_DIR$/out/production/VascalCompiler/com/LexicalError.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/VascalCompiler/com/README.md" afterPath="$PROJECT_DIR$/out/production/VascalCompiler/com/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/VascalCompiler/com/lextexttest.txt" afterPath="$PROJECT_DIR$/out/production/VascalCompiler/com/lextexttest.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/CharStream.java" afterPath="$PROJECT_DIR$/src/com/CharStream.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Lexer.java" afterPath="$PROJECT_DIR$/src/com/Lexer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/LexicalError.java" afterPath="$PROJECT_DIR$/src/com/LexicalError.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/README.md" afterPath="$PROJECT_DIR$/src/com/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/lextexttest.txt" afterPath="$PROJECT_DIR$/src/com/lextexttest.txt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,15 +31,15 @@
       <file leaf-file-name="Lexer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/Lexer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5423">
-              <caret line="319" column="26" lean-forward="false" selection-start-line="319" selection-start-column="26" selection-end-line="319" selection-end-column="26" />
+            <state relative-caret-position="442">
+              <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1193#1194#0" expanded="true" />
                 <element signature="e#1225#1226#0" expanded="true" />
-                <element signature="e#1587#1594#0" expanded="true" />
-                <element signature="e#2226#2227#0" expanded="true" />
-                <element signature="e#2261#2262#0" expanded="true" />
+                <element signature="e#1623#1630#0" expanded="true" />
+                <element signature="e#2262#2263#0" expanded="true" />
+                <element signature="e#2297#2298#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -66,8 +59,8 @@
         <entry file="file://$PROJECT_DIR$/src/com/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="440">
-                <caret line="26" column="1" lean-forward="false" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+              <first_editor relative-caret-position="100">
+                <caret line="6" column="32" lean-forward="true" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -193,12 +186,12 @@
         <option value="$PROJECT_DIR$/src/com/Keywords.java" />
         <option value="$PROJECT_DIR$/src/com/Token.java" />
         <option value="$PROJECT_DIR$/src/compiler/Lexer.java" />
-        <option value="$PROJECT_DIR$/src/com/README.md" />
         <option value="$PROJECT_DIR$/src/com/LexicalError.java" />
         <option value="$PROJECT_DIR$/src/com/CharStream.java" />
         <option value="$PROJECT_DIR$/src/com/lextexttest.txt" />
-        <option value="$PROJECT_DIR$/src/com/Lexer.java" />
         <option value="$PROJECT_DIR$/src/com/lextexttest2.txt" />
+        <option value="$PROJECT_DIR$/src/com/README.md" />
+        <option value="$PROJECT_DIR$/src/com/Lexer.java" />
       </list>
     </option>
   </component>
@@ -347,12 +340,12 @@
       <option name="presentableId" value="Default" />
       <updated>1549055103171</updated>
       <workItem from="1549055112385" duration="54282000" />
-      <workItem from="1549346115956" duration="56306000" />
+      <workItem from="1549346115956" duration="56994000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110588000" />
+    <option name="totallyTimeSpent" value="111276000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -399,7 +392,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/com/Lexer.java</url>
-          <line>250</line>
+          <line>251</line>
           <properties class="com.Lexer" method="readNumber">
             <option name="EMULATED" value="true" />
           </properties>
@@ -407,7 +400,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/com/Lexer.java</url>
-          <line>124</line>
+          <line>125</line>
           <properties class="com.Lexer" method="readIdentifier">
             <option name="EMULATED" value="true" />
           </properties>
@@ -489,9 +482,9 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1193#1194#0" expanded="true" />
             <element signature="e#1225#1226#0" expanded="true" />
-            <element signature="e#1587#1594#0" expanded="true" />
-            <element signature="e#2226#2227#0" expanded="true" />
-            <element signature="e#2261#2262#0" expanded="true" />
+            <element signature="e#1623#1630#0" expanded="true" />
+            <element signature="e#2262#2263#0" expanded="true" />
+            <element signature="e#2297#2298#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -575,17 +568,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="440">
-            <caret line="26" column="1" lean-forward="false" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lextexttest.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -602,17 +584,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="100">
+            <caret line="6" column="32" lean-forward="true" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Lexer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5423">
-          <caret line="319" column="26" lean-forward="false" selection-start-line="319" selection-start-column="26" selection-end-line="319" selection-end-column="26" />
+        <state relative-caret-position="442">
+          <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1193#1194#0" expanded="true" />
             <element signature="e#1225#1226#0" expanded="true" />
-            <element signature="e#1587#1594#0" expanded="true" />
-            <element signature="e#2226#2227#0" expanded="true" />
-            <element signature="e#2261#2262#0" expanded="true" />
+            <element signature="e#1623#1630#0" expanded="true" />
+            <element signature="e#2262#2263#0" expanded="true" />
+            <element signature="e#2297#2298#0" expanded="true" />
           </folding>
         </state>
       </provider>

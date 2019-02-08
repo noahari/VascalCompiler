@@ -34,7 +34,8 @@ public class Lexer {
     }
 
     public static void main(String[] args) throws IOException, LexicalError{
-        String fileloc = "D:/Programs/Master/VascalCompiler/src/com/lextexttest.txt";
+        //String fileloc = "D:/Programs/Master/VascalCompiler/src/com/lextexttest.txt";
+        String fileloc = args[0];
         cStream = new CharStream(fileloc);
         cStream.setWhitepass(true);
         //old approach of storing tokens in accessible data structure
