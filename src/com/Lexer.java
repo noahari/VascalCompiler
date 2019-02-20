@@ -13,10 +13,10 @@ public class Lexer {
     private static final int IDMAX = 64;
     private static final int NUMMAX = 512;
     //global token and previous token for tracking current and previous tokens lexed.
-    private static Token token = new Token("empty");
-    private static Token prevToken = new Token("start");
+    Token token;
+    Token prevToken;
     //Custom class to maintain an input stream and stack at once
-    private static CharStream cStream;
+    CharStream cStream;
     //String to act as buffer, storing read id info of current token
     private static String id = "";
     //variable to make sure whitespace/nonalphanumeric bounds identifiers
@@ -27,8 +27,19 @@ public class Lexer {
         return VALID_CHARS;
     }
     */
-    private static Token getPrevToken() {
+    public Lexer(){
+        token = new Token("empty");
+        prevToken = new Token("start");
+    }
+
+    private Token getPrevToken() {
         return prevToken;
+    }
+    private void setCurToken(Token t){
+        token = t;
+    }
+    private static Token getCurToken(Token t){
+        return t;
     }
 
     public static void main(String[] args) throws IOException, LexicalError{
@@ -36,18 +47,18 @@ public class Lexer {
         //Will adapt this later to require less typing
         String workingDir = System.getProperty("user.dir");
         Lexer lx = new Lexer();
-        String fileloc = workingDir + "/com/" + args[0];
-        //String fileloc = workingDir + "/com/" + "lextexttest.txt";
-        cStream = new CharStream(fileloc);
-        cStream.setWhitepass(true);
+        //String fileloc = workingDir + "/com/" + args[0];
+        String fileloc = workingDir + "/src/com/LanguageResources/" + "ultcorrected.txt";
+        lx.cStream = new CharStream(fileloc);
+        lx.cStream.setWhitepass(true);
         //old approach of storing tokens in accessible data structure
-        ArrayList<Token> tokens = new ArrayList<Token>(1);
-        while(!(getPrevToken().getType().equals("ENDOFFILE"))){
+        //ArrayList<Token> tokens = new ArrayList<Token>(1);
+        while(!(lx.getPrevToken().getType().equals("ENDOFFILE"))){
             //must clear the buffer string
             id = "";
-            cStream.setWhitepass(false);
-            Token curToken = GetNextToken();
-            prevToken = curToken;
+            lx.cStream.setWhitepass(false);
+            Token curToken = lx.GetNextToken();
+            lx.prevToken = curToken;
             //checks if the token has anything: edge case of only comment in file
             if(!curToken.getType().equals("empty")) {
                 curToken.printToken();
@@ -55,7 +66,6 @@ public class Lexer {
             }
         }
     }
-
 
     //currently unimplemented, but will be a helper function to allow user input to specify file
     public static String openFile(){
@@ -71,7 +81,7 @@ public class Lexer {
     }
 
     //helper to check if a character is valid
-    private static boolean validCheck(char c){
+    private boolean validCheck(char c){
         //System.out.println(c);
         //System.out.println(VALID_CHARS.indexOf(c));
         return !(VALID_CHARS.indexOf(c) < 0);
@@ -79,8 +89,9 @@ public class Lexer {
 
 
     //input an int i that is tracked in main
-    private static Token GetNextToken() throws IOException, LexicalError{
-        Token loctoken = token;
+    public Token GetNextToken() throws IOException, LexicalError{
+        Token loctoken = this.token;
+        this.prevToken = this.token;
         //cStream.buffer.clear();
         //token.clear();
         char cur = cStream.getChar();
@@ -125,12 +136,12 @@ public class Lexer {
     }
 
     //read identifier
-    private static Token readIdentifier(char nextChar) throws IOException, LexicalError{
+    private Token readIdentifier(char nextChar) throws IOException, LexicalError{
         //letters
         Token loctoken;
         int len = 0;
-
-        if(((prevToken.getType() == "INTCONSTANT") || (prevToken.getType() == "REALCONSTANT")) && (!cStream.getWhitepass())){
+        id = "";
+        if(((this.prevToken.getType().equals("INTCONSTANT")) || (this.prevToken.getType().equals("REALCONSTANT"))) && (!cStream.getWhitepass())){
             System.out.println(nextChar);
             throw LexicalError.ErrorMsg(5,cStream.getLinerr(),cStream.getCharerr());
         }
@@ -152,7 +163,7 @@ public class Lexer {
         //KEYWORD check
         //can be cleaned up with an enumeration or hashmap, but will leave as is for now since it works,
         //I'm out of time, and I'm scared to break it until our allotted clean up time.
-        switch (id) {
+        switch (id.toUpperCase()) {
             case "PROGRAM":
             case "BEGIN":
             case "END":
@@ -195,7 +206,7 @@ public class Lexer {
 
     //needs to be able to take the id so we can return properly,
     //and not break up the numbers before and after the scientific notation
-    private static String getSci(String ide) throws IOException, LexicalError{
+    private String getSci(String ide) throws IOException, LexicalError{
         //e case handling needs lookahead
         char lookahead = cStream.getChar();
         //can see +- or number
@@ -251,11 +262,12 @@ public class Lexer {
     }
 
     //lex a numerical token
-    private static Token readNumber(char nextChar) throws IOException, LexicalError {
+    private Token readNumber(char nextChar) throws IOException, LexicalError {
 
         Token loctoken = new Token();
         char lookahead;
         int len = 0;
+        id = "";
         //transition from q0 and loop on state 1
         while(Character.isDigit(nextChar)){
             id += nextChar;
@@ -322,13 +334,15 @@ public class Lexer {
                         //nextChar = cStream.getChar();
                         //System.out.println(nextChar);
                     }
+                    //ADDDED TO FIX THE BUG in PARSETOWN USA
+                    cStream.pushback(nextChar);
                     //set the value of the token to the id when assembled
                     loctoken.setVal(id);
                 }
                 //currently empty else, saving commented code for debugging
                 // in later stages. REMOVE DURING POLISH.
                 else{
-                    //cStream.pushback(lookahead);
+                    cStream.pushback(lookahead);
                 }
                 break;
             //converted in switch conditional
@@ -344,10 +358,10 @@ public class Lexer {
     }
 
     //lex a symbol into a token
-    private static Token readSymbol(char nextChar) throws IOException, LexicalError {
+    private Token readSymbol(char nextChar) throws IOException, LexicalError {
 
         char lookahead;
-        Token loctoken = token;
+        Token loctoken = this.token;
         //comma
         if (nextChar == ',') {
             loctoken = new Token("COMMA");
@@ -375,22 +389,22 @@ public class Lexer {
         }
         //LEFTPAREN
         if (nextChar == '(') {
-            loctoken = new Token("LEFTPAREN");
+            loctoken = new Token("LPAREN");
             return loctoken;
         }
         //RIGHTPAREN
         if (nextChar == ')') {
-            loctoken = new Token("RIGHTPAREN");
+            loctoken = new Token("RPAREN");
             return loctoken;
         }
         //LEFTBRACKET
         if (nextChar == '[') {
-            loctoken = new Token("LEFTBRACKET");
+            loctoken = new Token("LBRACKET");
             return loctoken;
         }
         //RIGHTBRACKET
         if (nextChar == ']') {
-            loctoken = new Token("RIGHTBRACKET");
+            loctoken = new Token("RBRACKET");
             return loctoken;
         }
 
@@ -455,7 +469,7 @@ public class Lexer {
 
         //ADDOP
         if (nextChar == '+') {
-            if (unarycheck(prevToken)) {
+            if (unarycheck(this.prevToken)) {
                 loctoken = new Token("ADDOP", "1");
                 return loctoken;
             }
@@ -467,12 +481,12 @@ public class Lexer {
         }
 
         if (nextChar == '-') {
-            if (unarycheck(prevToken)) {
+            if (unarycheck(this.prevToken)) {
                 loctoken = new Token("ADDOP", "2");
                 return loctoken;
             }
 
-            //Unaryplus
+            //Unaryminus
             else {
                 loctoken = new Token("UNARYMINUS");
                 return loctoken;
