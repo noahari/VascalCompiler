@@ -11,6 +11,7 @@ public class ParseTable {
 
     BufferedReader reader;
     String file = System.getProperty("user.dir") + "/com/LanguageResources/parsetable.txt";
+    //for running in intellij *INTELLIJ*
     //String file = System.getProperty("user.dir") + "/src/com/LanguageResources/parsetable.txt";
     ArrayList<String> nonterminals;
     ArrayList<String> terminals;

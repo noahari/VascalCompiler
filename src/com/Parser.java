@@ -12,6 +12,7 @@ public class Parser {
     private static Stack<String> parseStack = new Stack<>();
     private static Stack dumpStack = new Stack<>();
     private static String fileloc = System.getProperty("user.dir") + "/com/LanguageResources/ultcorrected.txt";
+    //for use in intellij *INTELLIJ*
     //private static String fileloc = System.getProperty("user.dir") + "/src/com/LanguageResources/ultcorrected.txt";
 
     public static void main(String[] args) throws IOException, LexicalError, ParseError{
@@ -38,7 +39,7 @@ public class Parser {
         System.out.println("Current Token: " + curToken.getType()+" WITH THE VALUE: "+curToken.getVal());
         //error checking in case null to prevent null pointer exception warning.
         if(parseStack.empty()){
-            throw ParseError.ErrorMsg(1,"",curToken);
+            throw ParseError.ErrorMsg(1,"",curToken.getType(),Integer.toString(luthor.cStream.getLinerr()));
         }
         //X<-top of stack
         stackTop = parseStack.peek();
@@ -60,7 +61,7 @@ public class Parser {
                     System.out.println("Current Token: " + curToken.getType()+" WITH THE VALUE: "+curToken.getVal());
                 }
                 else{
-                    throw ParseError.ErrorMsg(1, stackTop, curToken);
+                    throw ParseError.ErrorMsg(1, stackTop, curToken.getType(),Integer.toString(luthor.cStream.getLinerr()));
                 }
             }
             else{
@@ -97,14 +98,16 @@ public class Parser {
                 else{
                     System.out.println("ERRONEUS TOKEN: "+curToken.getType());
                     System.out.println("ERRONEUS STACKTOP: "+stackTop);
-                    throw ParseError.ErrorMsg(2,Integer.toString(luthor.cStream.getLinerr()), curToken);
+                    //can ignore the deref issue since a Lexer call would happen first, meaning the Lexical error would handle that case
+                    throw ParseError.ErrorMsg(2,stackTop, curToken.getType(), Integer.toString(luthor.cStream.getLinerr()));
                 }
             }
             stackTop = parseStack.peek();
             step++;
         }
         if(!(parseStack.peek().equals("$"))){
-            throw ParseError.ErrorMsg(3,stackTop,curToken);
+            //can ignore the deref issue since a Lexer call would happen first, meaning the Lexical error would handle that case
+            throw ParseError.ErrorMsg(3,stackTop,curToken.getType(),Integer.toString(luthor.cStream.getLinerr()));
         }
 
         System.out.println(">>- "+step+" -<<");
