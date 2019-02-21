@@ -29,11 +29,14 @@ public class Parser {
 
 
     public static void Parse(Lexer luthor) throws IOException,LexicalError,ParseError{
+        //initialize debug var
         int step = 1;
+        //read in language resources
         ParseTable ptable = new ParseTable();
         RHSTable rhsTable = new RHSTable();
         rhsTable.readGrammar();
         ptable.readPtable();
+        //initiate lexer's cStream
         luthor.cStream = new CharStream(fileloc);
         //push eof
         parseStack.push("$");

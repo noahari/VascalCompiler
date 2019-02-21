@@ -10,7 +10,9 @@ To run this file:
 
 - cd back out to src and run com.Parser
 
-- The output corresponds to the test file located in src/com/LanguageResources/ultcorrected.txt
+-  The default test file is ultcorrected.txt. All you need to do to add test files is add them to the 
+directory src/com/LanguageResources and type their name in as arguments to running com.Parser 
+(e.g. "java com.Parser simple.txt" would Parse a file called simple.txt in the LanguageResources folder).
 
 *Note: Due to path differences, if it is preferable to run in intellij as opposed to the
 command line, the correct file paths are noted below comments containing the searchable phrase "" \*INTELLIJ\* "*
