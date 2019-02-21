@@ -19,9 +19,9 @@ command line, the correct file paths are noted below comments containing the sea
 below that demarcation in Parser.java, RHSTable.java, and ParseTable.java. Then simply execute the
 main method in Parser.java*
 
-### Changelog:
+## Changelog:
 
-#### Version 0.2.5
+### Version 0.2.5
 >Implemented Parser in an abstracted, generalized method that can read an input Grammar
 and Parse Table, and use it to properly parse an input file. Since it reads these from a file,
 the Parser can simply be directed to read files that construct a different language and then 
@@ -40,7 +40,7 @@ after that token would be consumed and ignored.
 references to fix a Parsing bug where progressive lexing produced error in the Unary vs Addop
 distinction.
 
-#### Version 0.1
+### Version 0.1
 >Implemented Lexer with handling for Keywords, Identifiers, Numbers, and Symbols.
 
 >Checks for valid characters; 
