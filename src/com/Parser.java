@@ -11,7 +11,8 @@ public class Parser {
     private static String stackTop = "";
     private static Stack<String> parseStack = new Stack<>();
     private static Stack dumpStack = new Stack<>();
-    private static String fileloc = System.getProperty("user.dir") + "/src/com/LanguageResources/ultcorrected.txt";
+    private static String fileloc = System.getProperty("user.dir") + "/com/LanguageResources/ultcorrected.txt";
+    //private static String fileloc = System.getProperty("user.dir") + "/src/com/LanguageResources/ultcorrected.txt";
 
     public static void main(String[] args) throws IOException, LexicalError, ParseError{
         Lexer luthor = new Lexer();

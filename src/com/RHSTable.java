@@ -11,7 +11,8 @@ public class RHSTable {
 
     BufferedReader reader;
     ArrayList<ArrayList<String>> rhs;
-    String file = System.getProperty("user.dir") + "/src/com/LanguageResources/rhstable.txt";
+    String file = System.getProperty("user.dir") + "/com/LanguageResources/rhstable.txt";
+    //String file = System.getProperty("user.dir") + "/src/com/LanguageResources/rhstable.txt";
 
     public RHSTable() throws FileNotFoundException{
         reader = new BufferedReader(new FileReader(file));

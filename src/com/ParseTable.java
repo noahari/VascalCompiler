@@ -10,7 +10,8 @@ import java.util.Arrays;
 public class ParseTable {
 
     BufferedReader reader;
-    String file = System.getProperty("user.dir") + "/src/com/LanguageResources/parsetable.txt";
+    String file = System.getProperty("user.dir") + "/com/LanguageResources/parsetable.txt";
+    //String file = System.getProperty("user.dir") + "/src/com/LanguageResources/parsetable.txt";
     ArrayList<String> nonterminals;
     ArrayList<String> terminals;
     ArrayList<ArrayList<Integer>> derivationcodes;
