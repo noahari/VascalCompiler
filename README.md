@@ -17,6 +17,10 @@ arguments to running com.Parser
 
 - This can now be run in intelliJ without changing code pointing to paths.
 
+*NOTE: Sometimes when moving between OS or systems, critical spaces in the grammar get optimized away.
+The compiler demands epsilon be represted as exactly ":=  ", so simply adding a special character and editing the
+RHS table may fix this. Causes an array out of bounds exception at start of execution*
+
 ## Changelog:
 
 ### Version 0.3
