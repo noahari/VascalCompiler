@@ -50,4 +50,8 @@ public class Token {
         this.val = null;
     }
 
+    int tokenToInt(){
+        return Integer.parseInt(val);
+    }
+
 }

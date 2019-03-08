@@ -1,7 +1,6 @@
 # Vascal Compiler
 
-## Version 0.25: Parser Implemented with Lexer fixes
-
+##Version 0.3
 To run this file:
 
 - Pull the files from github maintaining the directory structure
@@ -10,18 +9,24 @@ To run this file:
 
 - cd back out to src and run com.Parser
 
--  The default test file is ultcorrected.txt. All you need to do to add test files is add them to the 
-directory src/com/LanguageResources and type their name in as arguments to running com.Parser 
+-  The default test file is now simple.txt, since ultcorrected.txt involves 
+too many unimplemented Semantic Actions. All you need to do to add test files 
+is add them to the directory src/com/LanguageResources and type their name in as 
+arguments to running com.Parser 
 (e.g. "java com.Parser simple.txt" would Parse a file called simple.txt in the LanguageResources folder).
 
-*Note: Due to path differences, if it is preferable to run in intellij as opposed to the
-command line, the correct file paths are noted below comments containing the searchable phrase "" \*INTELLIJ\* "*
-
-*In order to run in intellij, comment out the line above that demarcation, and de-comment the line
-below that demarcation in Parser.java, RHSTable.java, and ParseTable.java. Then simply execute the
-main method in Parser.java*
+- This can now be run in intelliJ without changing code pointing to paths.
 
 ## Changelog:
+
+### Version 0.3
+>Implemented Symbol Table and Semantic Action frameworks with error catching for both.
+
+>Implemented Semantic Actions 1, 2, 3, 4, 6, 7, 9, and 13.
+
+>Past Bug Fixes:
+* >Now runs in intelliJ or command line environments 
+without changing lines of code or recompiling
 
 ### Version 0.2.5
 >Implemented Parser in an abstracted, generalized method that can read an input Grammar
@@ -58,7 +63,29 @@ distinction.
  this will be improved upon in subsequent versions.
  
  
- ## History
+ ## Historical Version Notes
+ 
+ 
+## Version 0.25: Parser Implemented with Lexer fixes
+
+To run this file:
+
+- Pull the files from github maintaining the directory structure
+
+- cd into src/com and javac *.java
+
+- cd back out to src and run com.Parser
+
+-  The default test file is ultcorrected.txt. All you need to do to add test files is add them to the 
+directory src/com/LanguageResources and type their name in as arguments to running com.Parser 
+(e.g. "java com.Parser simple.txt" would Parse a file called simple.txt in the LanguageResources folder).
+
+*Note: Due to path differences, if it is preferable to run in intellij as opposed to the
+command line, the correct file paths are noted below comments containing the searchable phrase "" \*INTELLIJ\* "*
+
+*In order to run in intellij, comment out the line above that demarcation, and de-comment the line
+below that demarcation in Parser.java, RHSTable.java, and ParseTable.java. Then simply execute the
+main method in Parser.java*
  
  ### Version 0.1: Lexer Implemented
  

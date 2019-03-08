@@ -9,10 +9,7 @@ import java.util.Arrays;
 
 public class ParseTable {
 
-    BufferedReader reader;
-    String file = System.getProperty("user.dir") + "/com/LanguageResources/parsetable.txt";
-    //for running in intellij *INTELLIJ*
-    //String file = System.getProperty("user.dir") + "/src/com/LanguageResources/parsetable.txt";
+    private BufferedReader reader;
     ArrayList<String> nonterminals;
     ArrayList<String> terminals;
     ArrayList<ArrayList<Integer>> derivationcodes;
@@ -21,7 +18,19 @@ public class ParseTable {
     //999 is error, negative is epsilon production
     //otherwise push while pop
 
+    private static boolean runningFromIntelliJ(){
+        String classPath = System.getProperty("java.class.path");
+        return classPath.contains("idea_rt.jar");
+    }
+
     public ParseTable() throws IOException {
+        String file;
+        if(runningFromIntelliJ()){
+            file = System.getProperty("user.dir") + "/src/com/LanguageResources/parsetable.txt";
+        }
+        else{
+            file = System.getProperty("user.dir") + "/com/LanguageResources/parsetable.txt";
+        }
         reader = new BufferedReader(new FileReader(file));
         nonterminals = new ArrayList<>();
         terminals = new ArrayList<>();

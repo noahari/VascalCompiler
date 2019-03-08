@@ -11,24 +11,35 @@ public class Parser {
     private static String stackTop = "";
     private static Stack<String> parseStack = new Stack<>();
     private static Stack dumpStack = new Stack<>();
-    private static String fileloc = System.getProperty("user.dir") + "/com/LanguageResources/";
+    private static String fileloc;
     //for use in intellij *INTELLIJ*
-    //private static String fileloc = System.getProperty("user.dir") + "/src/com/LanguageResources/ultcorrected.txt";
+    //private static String fileloc = System.getProperty("user.dir") + "/src/com/LanguageResources/";
 
-    public static void main(String[] args) throws IOException, LexicalError, ParseError{
+    private static boolean runningFromIntelliJ(){
+        String classPath = System.getProperty("java.class.path");
+        return classPath.contains("idea_rt.jar");
+    }
+
+    public static void main(String[] args) throws IOException,CompilerError{
         Lexer luthor = new Lexer();
+        Parser peter = new Parser();
+        if(runningFromIntelliJ()){
+            fileloc = System.getProperty("user.dir") + "/src/com/LanguageResources/";
+        }
+        else{
+            fileloc = System.getProperty("user.dir") + "/com/LanguageResources/";
+        }
         if(args.length == 0){
-            fileloc += "ultcorrected.txt";
+            fileloc += "simple.txt";
         }
         else{
             fileloc += args[0];
         }
-        Parse(luthor);
+        peter.Parse(luthor);
 
     }
 
-
-    public static void Parse(Lexer luthor) throws IOException,LexicalError,ParseError{
+    public void Parse(Lexer luthor) throws IOException,CompilerError{
         //initialize debug var
         int step = 1;
         //read in language resources
@@ -36,6 +47,7 @@ public class Parser {
         RHSTable rhsTable = new RHSTable();
         rhsTable.readGrammar();
         ptable.readPtable();
+        SemanticAction sa = new SemanticAction();
         //initiate lexer's cStream
         luthor.cStream = new CharStream(fileloc);
         //push eof
@@ -57,8 +69,15 @@ public class Parser {
             System.out.print("STACK::==> ");
             dumpStack();
 
+            //checks if semantic action
+            if(stackTop.charAt(0) == '#'){
+                System.out.println("TAKING SEMANTIC ACTION " + stackTop);
+                System.out.println(luthor.prevToken.getType() + ", " + luthor.prevToken.getVal());
+                sa.Execute(stackTop, luthor.prevToken);
+                parseStack.pop();
+            }
             //checks if terminal
-            if(!(stackTop.charAt(0) == '<')){
+            else if(!(stackTop.charAt(0) == '<')){
                 //do something for token
                 if(true){
                     System.out.println("POPPING "+parseStack.peek()+" WITH TOKEN "+curToken.getType());
@@ -73,6 +92,7 @@ public class Parser {
                     throw ParseError.ErrorMsg(1, stackTop, curToken.getType(),Integer.toString(luthor.cStream.getLinerr()));
                 }
             }
+            //if not terminal or semantic then must be nonterminal
             else{
                 //-1 to handle absence of null
                 int nontermkey = ptable.nonterminals.indexOf(stackTop) - 1;

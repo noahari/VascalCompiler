@@ -9,13 +9,22 @@ import java.util.Arrays;
 
 public class RHSTable {
 
-    BufferedReader reader;
+    private BufferedReader reader;
     ArrayList<ArrayList<String>> rhs;
-    String file = System.getProperty("user.dir") + "/com/LanguageResources/rhstable.txt";
-    //for use in intellij *INTELLIJ*
-    //String file = System.getProperty("user.dir") + "/src/com/LanguageResources/rhstable.txt";
+
+    private static boolean runningFromIntelliJ(){
+        String classPath = System.getProperty("java.class.path");
+        return classPath.contains("idea_rt.jar");
+    }
 
     public RHSTable() throws FileNotFoundException{
+        String file;
+        if(runningFromIntelliJ()){
+            file = System.getProperty("user.dir") + "/src/com/LanguageResources/rhstable.txt";
+        }
+        else{
+            file = System.getProperty("user.dir") + "/com/LanguageResources/rhstable.txt";
+        }
         reader = new BufferedReader(new FileReader(file));
         rhs = new ArrayList<>();
     }
