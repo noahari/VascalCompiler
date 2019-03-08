@@ -31,11 +31,10 @@ public class SemanticAction {
     }
 
     public void initgTable()throws SymbolTableError{
-
         gTable.insert("MAIN", new ProcedureEntry("MAIN", 0, null));
         gTable.insert("READ", new ProcedureEntry("READ", 0, null));
         gTable.insert("WRITE", new ProcedureEntry("WRITE", 0, null));
-
+        //IO added in 9 when it matters
     }
 
     public void initlTable(){}
