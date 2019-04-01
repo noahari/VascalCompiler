@@ -10,7 +10,7 @@ public class FunctionEntry extends SymbolTableEntry {
     private VariableEntry result;
 
     public FunctionEntry(String name, int p, ArrayList<SymbolTableEntry> l, VariableEntry r){
-        this.name = name;
+        this.name = name.toUpperCase();
         this.parameterCount = p;
         this.parameterInfo = l;
         this.result = r;

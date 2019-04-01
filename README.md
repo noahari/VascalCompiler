@@ -1,6 +1,6 @@
 # Vascal Compiler
 
-##Version 0.3
+##Version 0.6
 To run this file:
 
 - Pull the files from github maintaining the directory structure
@@ -9,8 +9,9 @@ To run this file:
 
 - cd back out to src and run com.Parser
 
--  The default test file is now simple.txt, since ultcorrected.txt involves 
-too many unimplemented Semantic Actions. All you need to do to add test files 
+-  The default test file is now phase2-6.txt (phase2-6_ns.vas) since Array actions are not yet implemented, and now simple.txt
+ has too many unimplemented actions that would cause errors. 
+ Like previous versions, all you need to do to add test files 
 is add them to the directory src/com/LanguageResources and type their name in as 
 arguments to running com.Parser 
 (e.g. "java com.Parser simple.txt" would Parse a file called simple.txt in the LanguageResources folder).
@@ -22,6 +23,26 @@ The compiler demands epsilon be represted as exactly ":=  ", so simply adding a 
 RHS table may fix this. Causes an array out of bounds exception at start of execution*
 
 ## Changelog:
+
+### Version 0.6
+>Implemented Quadruple & Quadruples data structures to hold generated TVI stub code
+
+>Implemented functionality to generate TVI stub code corresponding to parsed Vascal Code
+
+>Added a constant symbol table and a global store to track allocs
+
+>Implemented Table Lookup, Backpatching, and Type Checking
+
+>Implemented Semantic Actions 31, 31, 40, 41, 42, 43, 44, 45, 46, 48, 55 and 56.
+
+>Past Bug Fixes:
+* >Action 9 now generates stub code
+
+>Possible Issues:
+* >On testfile 2-6_ns, it produces the same code as listed in the 2-6_ns.tvi file
+but that is different from the stub code provided in the .vas file.
+* >Current error catching for SemanticActionError and SymbolTableError is a little terse
+and not always as helpful as it should be.
 
 ### Version 0.3
 >Implemented Symbol Table and Semantic Action frameworks with error catching for both.
@@ -69,7 +90,28 @@ distinction.
  
  ## Historical Version Notes
  
+##Version 0.3
+To run this file:
+
+- Pull the files from github maintaining the directory structure
+
+- cd into src/com and javac *.java
+
+- cd back out to src and run com.Parser
+
+-  The default test file is now simple.txt, since ultcorrected.txt involves 
+too many unimplemented Semantic Actions. All you need to do to add test files 
+is add them to the directory src/com/LanguageResources and type their name in as 
+arguments to running com.Parser 
+(e.g. "java com.Parser simple.txt" would Parse a file called simple.txt in the LanguageResources folder).
+
+- This can now be run in intelliJ without changing code pointing to paths.
+
+*NOTE: Sometimes when moving between OS or systems, critical spaces in the grammar get optimized away.
+The compiler demands epsilon be represted as exactly ":=  ", so simply adding a special character and editing the
+RHS table may fix this. Causes an array out of bounds exception at start of execution*
  
+
 ## Version 0.25: Parser Implemented with Lexer fixes
 
 To run this file:

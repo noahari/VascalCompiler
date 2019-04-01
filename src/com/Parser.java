@@ -30,7 +30,7 @@ public class Parser {
             fileloc = System.getProperty("user.dir") + "/com/LanguageResources/";
         }
         if(args.length == 0){
-            fileloc += "simple.txt";
+            fileloc += "phase2-6_ns.txt";
         }
         else{
             fileloc += args[0];
@@ -144,6 +144,7 @@ public class Parser {
         dumpStack();
         System.out.println("POPPING "+parseStack.peek()+" WITH TOKEN "+curToken.getType());
         System.out.println("! ACCEPT !");
+        writeTVI(sa);
     }
 
     public static void dumpStack(){
@@ -157,6 +158,12 @@ public class Parser {
             }
         }
         System.out.println("]");
+    }
+
+    static void writeTVI(SemanticAction s){
+        s.getQs().print();
+        //currently unimplemented, but this can be a helper function
+        //to pipe just the generated TVI code to an output file
     }
 
 

@@ -5,8 +5,8 @@ public class ConstantEntry extends SymbolTableEntry {
     private String name, type;
 
     public ConstantEntry(String n, String t){
-        this.name = n;
-        this.type = t;
+        this.name = n.toUpperCase();
+        this.type = t.toUpperCase();
     }
 
     //with all the mention of searching for constants I felt that addding this may prove useful

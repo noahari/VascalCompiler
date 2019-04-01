@@ -9,7 +9,7 @@ public class ProcedureEntry extends SymbolTableEntry {
     private ArrayList<SymbolTableEntry> parameterInfo;
 
     public ProcedureEntry(String name, int p, ArrayList<SymbolTableEntry> l){
-        this.name = name;
+        this.name = name.toUpperCase();
         this.parameterCount = p;
         this.parameterInfo = l;
     }

@@ -14,6 +14,9 @@ public class VariableEntry extends SymbolTableEntry{
         this.type = type;
     }
 
+    //constructor for generic case
+    public VariableEntry(){}
+
     public boolean isVariable(){
         return true;
     }

@@ -30,6 +30,12 @@ public class SymbolTableEntry {
         return false;
     }
 
+    String getName(){return null;}
+
+    String getType(){return null;}
+
+    int getAddress(){return -1;}
+
     public boolean getiFlag(){
         return iFlag;
     }

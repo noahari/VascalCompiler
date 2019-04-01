@@ -36,6 +36,25 @@ public class SymbolTable {
         return symTable.size();
     }
 
+    SymbolTableEntry lookup(Token t){
+        String index = t.getVal().toUpperCase();
+        if(symTable.containsKey(index)){
+            return symTable.get(index);
+        }
+        else{
+            return null;
+        }
+    }
+    SymbolTableEntry lookup(String s){
+        String index = s;
+        if(symTable.containsKey(index)){
+            return symTable.get(index);
+        }
+        else{
+            return null;
+        }
+    }
+
     void dumpTable(){
         System.out.println("-----------------------------------------");
         System.out.println("TABLE DUMP:");

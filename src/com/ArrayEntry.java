@@ -9,9 +9,9 @@ public class ArrayEntry extends SymbolTableEntry {
     private int lowerBound;
 
     public ArrayEntry(String name, int address, String type, int upperBound, int lowerBound){
-        this.name = name;
+        this.name = name.toUpperCase();
         this.address = address;
-        this.type = type;
+        this.type = type.toUpperCase();
         this.upperBound = upperBound;
         this.lowerBound = lowerBound;
     }
