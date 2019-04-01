@@ -1,9 +1,5 @@
 package com;
 
-import com.sun.java_cup.internal.runtime.Symbol;
-
-import javax.swing.*;
-import java.util.Objects;
 import java.util.Stack;
 
 public class SemanticAction {
@@ -24,7 +20,7 @@ public class SemanticAction {
     private Quadruples Qs;
     private int tempVarUID = 0;
 
-    public SemanticAction() throws CompilerError {
+    SemanticAction() throws CompilerError {
         modeFlag = true;
         envFlag = true;
         arrayFlag = false;
@@ -42,7 +38,7 @@ public class SemanticAction {
 
     Quadruples getQs(){return Qs;}
 
-    public void initgTable() throws SymbolTableError {
+    private void initgTable() throws SymbolTableError {
         gTable.insert("MAIN", new ProcedureEntry("MAIN", 0, null));
         gTable.insert("READ", new ProcedureEntry("READ", 0, null));
         gTable.insert("WRITE", new ProcedureEntry("WRITE", 0, null));
@@ -52,7 +48,7 @@ public class SemanticAction {
     public void initlTable() {
     }
 
-    public SymbolTableEntry lookupID(Token t) {
+    private SymbolTableEntry lookupID(Token t) {
         SymbolTableEntry ste = lTable.lookup(t.getVal());
         if (ste == null) {
             ste = gTable.lookup(t.getVal());
@@ -60,7 +56,7 @@ public class SemanticAction {
         return ste;
     }
 
-    public SymbolTableEntry lookupID(String t){
+    private SymbolTableEntry lookupID(String t){
         SymbolTableEntry ste = lTable.lookup(t);
         if (ste == null) {
             ste = gTable.lookup(t);
@@ -71,9 +67,9 @@ public class SemanticAction {
         return ste;
     }
 
-    public SymbolTableEntry lookupConstant(String t){return cTable.lookup(t);}
+    private SymbolTableEntry lookupConstant(String t){return cTable.lookup(t);}
 
-    public int typeCheck(SymbolTableEntry id1, SymbolTableEntry id2) {
+    private int typeCheck(SymbolTableEntry id1, SymbolTableEntry id2) {
         String type1 = id1.getType();
         String type2 = id2.getType();
 
@@ -102,7 +98,7 @@ public class SemanticAction {
         return -1;
     }
 
-    public VariableEntry creat(String name, String type) throws SymbolTableError {
+    private VariableEntry creat(String name, String type) throws SymbolTableError {
         VariableEntry ve = new VariableEntry();
         ve.setType(type);
         ve.setName(name);
@@ -122,25 +118,19 @@ public class SemanticAction {
         return ve;
     }
 
-    public String getTempVar() {
+    private String getTempVar() {
         return "temp"+Integer.toString(tempVarUID);
     }
 
-    public Boolean isReserved(String s) {
-        if (s.equals("MAIN") || s.equals("_")) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+    private Boolean isReserved(String s) {return s.equals("main") || s.equals("_");}
 
-    public Quadruple generate(String op1) {
+    private Quadruple generate(String op1) {
         Quadruple tvi = new Quadruple(op1);
         Qs.addQuad(tvi);
         return tvi;
     }
 
-    public Quadruple generate(String op1, String op2) throws SymbolTableError {
+    private Quadruple generate(String op1, String op2) throws SymbolTableError {
         SymbolTableEntry op2t = lookupID(op2);
         String op2f = "";
         if (isReserved(op2)) {
@@ -154,7 +144,7 @@ public class SemanticAction {
         return tvi;
     }
 
-    public Quadruple generate(String op1, String op2, String op3) throws SymbolTableError {
+    private Quadruple generate(String op1, String op2, String op3) throws SymbolTableError {
         SymbolTableEntry op2t = lookupID(op2);
         String op2f = "";
         SymbolTableEntry op3t = lookupID(op3);
@@ -179,7 +169,7 @@ public class SemanticAction {
         return tvi;
     }
 
-    public Quadruple generate(String op1, String op2, String op3, String op4) throws SymbolTableError {
+    private Quadruple generate(String op1, String op2, String op3, String op4) throws SymbolTableError {
         SymbolTableEntry op2t = lookupID(op2);
         String op2f = "";
         SymbolTableEntry op3t = lookupID(op3);
@@ -210,7 +200,7 @@ public class SemanticAction {
     }
 
     //new separate generate overload for getSTEAddress
-    public Quadruple generateAddress(String op1, String op2, String op3) throws SymbolTableError{
+    private Quadruple generateAddress(String op1, String op2, String op3) throws SymbolTableError{
         Quadruple quad;
         String address = null;
         String prefix;
@@ -225,7 +215,7 @@ public class SemanticAction {
     }
 
     //used for generate at the end-of-main
-    public Quadruple generateEnd(String op1, String op2){
+    private Quadruple generateEnd(String op1, String op2){
         Quadruple quad;
         quad = new Quadruple(op1, op2);
         Qs.addQuad(quad);
@@ -235,19 +225,19 @@ public class SemanticAction {
     //Currently used for Action9, not sure if necessary
     //there may be a more elegant solution than overriding
     //for one specific scenario
-    Quadruple generate9(String op1, String op2, String op3){
+    private Quadruple generate9(String op1, String op2, String op3){
         Quadruple quad;
         quad = new Quadruple(op1, op2, op3);
         Qs.addQuad(quad);
         return quad;
     }
 
-    void backpatch(int i, int x) {
+    private void backpatch(int i, int x) {
         //set the field of ith Quad's second field to x
         Qs.setField(i, 1, Integer.toString(x));
     }
 
-    int getSTEAddress(SymbolTableEntry ste) throws SymbolTableError {
+    private int getSTEAddress(SymbolTableEntry ste) throws SymbolTableError {
         if (ste.isArray() || ste.isVariable()) {
             // array entries and variable entries are
             // assigned address when they are initialized
@@ -266,7 +256,7 @@ public class SemanticAction {
         return -1;
     }
 
-    String getSTEPrefix(SymbolTableEntry ste) {
+    private String getSTEPrefix(SymbolTableEntry ste) {
         if (envFlag) {
             return "_";
         } else {
@@ -281,7 +271,7 @@ public class SemanticAction {
         }
     }
 
-    public void Execute(String action, Token t) throws CompilerError {
+    void Execute(String action, Token t) throws CompilerError {
         switch (action) {
             case "#1":
                 Action1(t);
