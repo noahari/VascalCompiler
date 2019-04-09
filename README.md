@@ -1,6 +1,6 @@
 # Vascal Compiler
 
-##Version 0.6
+##Version 0.75
 To run this file:
 
 - Pull the files from github maintaining the directory structure
@@ -9,7 +9,7 @@ To run this file:
 
 - cd back out to src and run com.Parser
 
--  The default test file is now phase2-6.txt (phase2-6_ns.vas) since Array actions are not yet implemented, and now simple.txt
+-  The default test file is now phase3-1.txt (phase3-1.vas) since Array actions are not yet implemented, and now simple.txt
  has too many unimplemented actions that would cause errors. 
  Like previous versions, all you need to do to add test files 
 is add them to the directory src/com/LanguageResources and type their name in as 
@@ -19,10 +19,23 @@ arguments to running com.Parser
 - This can now be run in intelliJ without changing code pointing to paths.
 
 *NOTE: Sometimes when moving between OS or systems, critical spaces in the grammar get optimized away.
-The compiler demands epsilon be represted as exactly ":=  ", so simply adding a special character and editing the
+The compiler demands epsilon be represented as exactly ":=  ", so simply adding a special character and editing the
 RHS table may fix this. Causes an array out of bounds exception at start of execution*
 
 ## Changelog:
+
+### Version 0.75
+>Implemented EType to track whether the expression being evaluated is arithmetic or relational
+
+>Implemented merge, makeList, and an Overloaded new version of backpatch
+
+>Implemented Semantic Actions 22, 24, 25, 26, 27, 28, 29, 32, 33, 34, 38, 39, 47, 53, 54
+
+>Revised Semantic Actions 30, 31, 41, 42, 43, 44, 45, 46, 48
+
+>Past Bug Fixes: 
+* >Generate function, op4f beng reserved was setting op3f = op3 instead of op4 = op4
+
 
 ### Version 0.6
 >Implemented Quadruple & Quadruples data structures to hold generated TVI stub code
@@ -89,8 +102,31 @@ distinction.
  
  
  ## Historical Version Notes
+
+##Version 0.6: Quadruple implementation for TVI generation
+To run this file:
+
+- Pull the files from github maintaining the directory structure
+
+- cd into src/com and javac *.java
+
+- cd back out to src and run com.Parser
+
+-  The default test file is now phase2-6.txt (phase2-6_ns.vas) since Array actions are not yet implemented, and now simple.txt
+ has too many unimplemented actions that would cause errors. 
+ Like previous versions, all you need to do to add test files 
+is add them to the directory src/com/LanguageResources and type their name in as 
+arguments to running com.Parser 
+(e.g. "java com.Parser simple.txt" would Parse a file called simple.txt in the LanguageResources folder).
+
+- This can now be run in intelliJ without changing code pointing to paths.
+
+*NOTE: Sometimes when moving between OS or systems, critical spaces in the grammar get optimized away.
+The compiler demands epsilon be represted as exactly ":=  ", so simply adding a special character and editing the
+RHS table may fix this. Causes an array out of bounds exception at start of execution*
+
  
-##Version 0.3
+##Version 0.3: Initial Semantic Implementation
 To run this file:
 
 - Pull the files from github maintaining the directory structure

@@ -30,7 +30,7 @@ public class Parser {
             fileloc = System.getProperty("user.dir") + "/com/LanguageResources/";
         }
         if(args.length == 0){
-            fileloc += "phase2-6_ns.txt";
+            fileloc += "phase3-1.txt";
         }
         else{
             fileloc += args[0];
