@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e71fb25a-523b-4204-97dd-a063bc3fc1af" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/VascalCompiler/com/LanguageResources/phase3-1.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/LanguageResources/phase3-1.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/VascalCompiler/com/Lexer.class" afterPath="$PROJECT_DIR$/out/production/VascalCompiler/com/Lexer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/FunctionEntry.java" afterPath="$PROJECT_DIR$/src/com/FunctionEntry.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Lexer.java" afterPath="$PROJECT_DIR$/src/com/Lexer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Parser.java" afterPath="$PROJECT_DIR$/src/com/Parser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ProcedureEntry.java" afterPath="$PROJECT_DIR$/src/com/ProcedureEntry.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/SemanticAction.java" afterPath="$PROJECT_DIR$/src/com/SemanticAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/SemanticActionError.java" afterPath="$PROJECT_DIR$/src/com/SemanticActionError.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/SymbolTableEntry.java" afterPath="$PROJECT_DIR$/src/com/SymbolTableEntry.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/VariableEntry.java" afterPath="$PROJECT_DIR$/src/com/VariableEntry.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Parser.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Parser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/Parser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="59" column="28" lean-forward="false" selection-start-line="59" selection-start-column="21" selection-end-line="59" selection-end-column="28" />
+            <state relative-caret-position="4064">
+              <caret line="242" column="18" lean-forward="false" selection-start-line="242" selection-start-column="18" selection-end-line="242" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -99,12 +88,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="85">
-                <caret line="5" column="84" lean-forward="false" selection-start-line="5" selection-start-column="84" selection-end-line="5" selection-end-column="84" />
+              <first_editor relative-caret-position="391">
+                <caret line="23" column="49" lean-forward="true" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -209,10 +198,10 @@
         <option value="$PROJECT_DIR$/src/com/VariableEntry.java" />
         <option value="$PROJECT_DIR$/src/com/LanguageResources/ult.txt" />
         <option value="$PROJECT_DIR$/src/com/Token.java" />
-        <option value="$PROJECT_DIR$/src/com/Parser.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/com/LanguageResources/ultout.txt" />
         <option value="$PROJECT_DIR$/src/com/SemanticAction.java" />
+        <option value="$PROJECT_DIR$/src/com/Parser.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -416,12 +405,12 @@
       <workItem from="1555221424497" duration="6458000" />
       <workItem from="1555377898100" duration="2816000" />
       <workItem from="1555877038652" duration="12830000" />
-      <workItem from="1555972323010" duration="9977000" />
+      <workItem from="1555972323010" duration="11947000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="363494000" />
+    <option name="totallyTimeSpent" value="365464000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -763,7 +752,7 @@
         <state relative-caret-position="476">
           <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
-            <element signature="e#853#854#0" expanded="true" />
+            <element signature="e#853#854#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -811,7 +800,7 @@
         <state relative-caret-position="170">
           <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding>
-            <element signature="e#888#889#0" expanded="true" />
+            <element signature="e#888#889#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -829,17 +818,6 @@
         <state relative-caret-position="136">
           <caret line="9" column="30" lean-forward="false" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="30" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="85">
-            <caret line="5" column="84" lean-forward="false" selection-start-line="5" selection-start-column="84" selection-end-line="5" selection-end-column="84" />
-            <folding />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -863,9 +841,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="59" column="28" lean-forward="false" selection-start-line="59" selection-start-column="21" selection-end-line="59" selection-end-column="28" />
+        <state relative-caret-position="4064">
+          <caret line="242" column="18" lean-forward="false" selection-start-line="242" selection-start-column="18" selection-end-line="242" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="391">
+            <caret line="23" column="49" lean-forward="true" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

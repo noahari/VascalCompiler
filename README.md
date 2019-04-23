@@ -11,13 +11,17 @@ To run this file:
 
 - cd into src/com and javac *.java
 
-- cd back out to src and run com.Parser
+- cd back out to src and run com.Parser with appropriate flags
+
+-
 
 - The default test file is now ult.txt (ultimate.vas). 
 Like previous versions, all you need to do to add test files 
 is add them to the directory src/com/LanguageResources and type their name in as 
 arguments to running com.Parser 
-(e.g. "java com.Parser simple.txt" would Parse a file called simple.txt in the LanguageResources folder).
+(e.g. "java com.Parser simple.txt" would Parse a file called simple.txt in the LanguageResources folder,
+adding the only currently implemented flag -t allows you to print stack traces as well:
+java com.Parser simple.txt -t, or java com.Parser -t will trace the default file).
 
 - This can now be run in intelliJ without changing code pointing to paths.
 
