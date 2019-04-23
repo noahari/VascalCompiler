@@ -30,7 +30,7 @@ public class Parser {
             fileloc = System.getProperty("user.dir") + "/com/LanguageResources/";
         }
         if(args.length == 0){
-            fileloc += "phase3-1.txt";
+            fileloc += "ult.txt";
         }
         else{
             fileloc += args[0];
@@ -57,7 +57,7 @@ public class Parser {
         //token<-next token
         curToken = luthor.GetNextToken();
         luthor.token = curToken;
-        System.out.println("Current Token: " + curToken.getType()+" WITH THE VALUE: "+curToken.getVal());
+        //System.out.println("Current Token: " + curToken.getType()+" WITH THE VALUE: "+curToken.getVal());
         //error checking in case null to prevent null pointer exception warning.
         if(parseStack.empty()){
             throw ParseError.ErrorMsg(1,"",curToken.getType(),Integer.toString(luthor.cStream.getLinerr()));
@@ -65,28 +65,29 @@ public class Parser {
         //X<-top of stack
         stackTop = parseStack.peek();
         while(!parseStack.peek().equals("$")){
-            System.out.println(">>- "+step+" -<<");
-            System.out.print("STACK::==> ");
-            dumpStack();
+            //System.out.println(">>- "+step+" -<<");
+            //System.out.print("STACK::==> ");
+            //dumpStack();
 
             //checks if semantic action
             if(stackTop.charAt(0) == '#'){
-                System.out.println("TAKING SEMANTIC ACTION " + stackTop);
-                System.out.println(luthor.prevToken.getType() + ", " + luthor.prevToken.getVal());
+                //System.out.println("TAKING SEMANTIC ACTION " + stackTop);
+                //System.out.println(luthor.prevToken.getType() + ", " + luthor.prevToken.getVal());
                 sa.Execute(stackTop, luthor.prevToken);
+                //System.out.println(sa.getSemanticStack());
                 parseStack.pop();
             }
             //checks if terminal
             else if(!(stackTop.charAt(0) == '<')){
                 //do something for token
                 if(true){
-                    System.out.println("POPPING "+parseStack.peek()+" WITH TOKEN "+curToken.getType());
+                    //System.out.println("POPPING "+parseStack.peek()+" WITH TOKEN "+curToken.getType());
                     parseStack.pop();
                     luthor.prevToken = curToken;
                     //curToken.clear();
                     curToken = luthor.GetNextToken();
                     luthor.token = curToken;
-                    System.out.println("Current Token: " + curToken.getType()+" WITH THE VALUE: "+curToken.getVal());
+                    //System.out.println("Current Token: " + curToken.getType()+" WITH THE VALUE: "+curToken.getVal());
                 }
                 else{
                     throw ParseError.ErrorMsg(1, stackTop, curToken.getType(),Integer.toString(luthor.cStream.getLinerr()));
@@ -104,11 +105,11 @@ public class Parser {
                 int dcode = ptable.derivationcodes.get(termkey).get(nontermkey) - 1;
                 if(dcode != 998){
                     if(dcode < 0){
-                        System.out.println("EPSILON");
+                        //System.out.println("EPSILON");
                         parseStack.pop();
                     }
                     else{
-                        System.out.println("POPPING: "+parseStack.peek());
+                        //System.out.println("POPPING: "+parseStack.peek());
                         parseStack.pop();
                         ArrayList<String> derivation = rhsTable.rhs.get(dcode);
                         if(derivation.get(0).equals("EPSILON")){
@@ -119,7 +120,7 @@ public class Parser {
                             for(int i = derivation.size() - 1; i >= 0; i--) {
                                 //epsilon here don't push please
                                 parseStack.push(derivation.get(i));
-                                System.out.println("PUSHING: " + derivation.get(i));
+                                //System.out.println("PUSHING: " + derivation.get(i));
                             }
                         }
                     }
@@ -139,11 +140,11 @@ public class Parser {
             throw ParseError.ErrorMsg(3,stackTop,curToken.getType(),Integer.toString(luthor.cStream.getLinerr()));
         }
 
-        System.out.println(">>- "+step+" -<<");
-        System.out.print("STACK::==> ");
-        dumpStack();
-        System.out.println("POPPING "+parseStack.peek()+" WITH TOKEN "+curToken.getType());
-        System.out.println("! ACCEPT !");
+        //System.out.println(">>- "+step+" -<<");
+        //System.out.print("STACK::==> ");
+        //dumpStack();
+        //System.out.println("POPPING "+parseStack.peek()+" WITH TOKEN "+curToken.getType());
+        //System.out.println("! ACCEPT !");
         writeTVI(sa);
     }
 

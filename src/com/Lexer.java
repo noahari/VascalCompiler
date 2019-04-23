@@ -74,8 +74,8 @@ public class Lexer {
 
     //checks the conditions for determining Uminus and Uplus against addops
     private static Boolean unarycheck(Token t){
-        return t.getType().equals("RIGHTPAREN") ||
-                t.getType().equals("RIGHTBRACKET") ||
+        return t.getType().equals("RIGHTPAREN") || t.getType().equals("RPAREN") ||
+                t.getType().equals("RIGHTBRACKET") || t.getType().equals("RBRACKET") ||
                 t.getType().equals("IDENTIFIER") ||
                 t.getType().equals("CONSTANT");
     }

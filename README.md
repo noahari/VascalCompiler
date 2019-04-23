@@ -1,6 +1,10 @@
 # Vascal Compiler
 
-##Version 0.75
+##Version 1.0
+This version now does not print stack traces and other backend information 
+so that the output TVI code may be directly piped into a file for ease of
+running a compiled program. This TVI code is built to run on the Vassar Interpreter.
+
 To run this file:
 
 - Pull the files from github maintaining the directory structure
@@ -9,20 +13,36 @@ To run this file:
 
 - cd back out to src and run com.Parser
 
--  The default test file is now phase3-1.txt (phase3-1.vas) since Array actions are not yet implemented, and now simple.txt
- has too many unimplemented actions that would cause errors. 
- Like previous versions, all you need to do to add test files 
+- The default test file is now ult.txt (ultimate.vas). 
+Like previous versions, all you need to do to add test files 
 is add them to the directory src/com/LanguageResources and type their name in as 
 arguments to running com.Parser 
 (e.g. "java com.Parser simple.txt" would Parse a file called simple.txt in the LanguageResources folder).
 
 - This can now be run in intelliJ without changing code pointing to paths.
 
-*NOTE: Sometimes when moving between OS or systems, critical spaces in the grammar get optimized away.
+*NOTE 1: TVI code may differ from other compilations due to implementation of modulus. 
+The resulting TVI code is still equally effective. The additional lines are equivalent moves,
+and any differences in register access and outp/print follow those differences. This causes
+an increase in memory allocation and extraneous moves, so assuming there is time this may 
+be optimized out in future versions.*
+
+*NOTE 2: Sometimes when moving between OS or systems, critical spaces in the grammar get optimized away.
 The compiler demands epsilon be represented as exactly ":=  ", so simply adding a special character and editing the
 RHS table may fix this. Causes an array out of bounds exception at start of execution*
 
 ## Changelog:
+
+###Version 1.0
+>Implemented additional versions of generate to fix errors when we can just pass hard values
+
+>Implemented getSTEPrefix, getParamPrefix, and getSTEAddress
+
+>Added tracking for local memory as localstore, as well as tracking for parameters in procs and funcs
+
+>Implemented Actions 5, 11, 15, 16, 17, 19, 20, 21, 35, 36, 37, 49, 50, 51, 51WRITE, 51READ, 52, 54
+
+>Revised Action 53
 
 ### Version 0.75
 >Implemented EType to track whether the expression being evaluated is arithmetic or relational
@@ -101,7 +121,29 @@ distinction.
  this will be improved upon in subsequent versions.
  
  
- ## Historical Version Notes
+## Historical Version Notes
+
+##Version 0.75
+To run this file:
+
+- Pull the files from github maintaining the directory structure
+
+- cd into src/com and javac *.java
+
+- cd back out to src and run com.Parser
+
+-  The default test file is now phase3-1.txt (phase3-1.vas) since Array actions are not yet implemented, and now simple.txt
+ has too many unimplemented actions that would cause errors. 
+ Like previous versions, all you need to do to add test files 
+is add them to the directory src/com/LanguageResources and type their name in as 
+arguments to running com.Parser 
+(e.g. "java com.Parser simple.txt" would Parse a file called simple.txt in the LanguageResources folder).
+
+- This can now be run in intelliJ without changing code pointing to paths.
+
+*NOTE: Sometimes when moving between OS or systems, critical spaces in the grammar get optimized away.
+The compiler demands epsilon be represented as exactly ":=  ", so simply adding a special character and editing the
+RHS table may fix this. Causes an array out of bounds exception at start of execution*
 
 ##Version 0.6: Quadruple implementation for TVI generation
 To run this file:

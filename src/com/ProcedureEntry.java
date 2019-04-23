@@ -14,6 +14,12 @@ public class ProcedureEntry extends SymbolTableEntry {
         this.parameterInfo = l;
     }
 
+    //new constructor made for use in Action17
+    public ProcedureEntry(String name){
+        this.name = name;
+        this.parameterInfo= new ArrayList<SymbolTableEntry>();
+    }
+
     boolean isProcedure(){
         return true;
     }

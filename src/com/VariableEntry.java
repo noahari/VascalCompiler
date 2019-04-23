@@ -6,26 +6,33 @@ public class VariableEntry extends SymbolTableEntry{
     private String name;
     private int address;
     private String type;
+    private boolean Parameter;
 
-
-    public VariableEntry(String name, int add, String type){
+    VariableEntry(String name, int add, String type){
         this.name = name;
         this.address = add;
         this.type = type;
     }
 
     //constructor for generic case
-    public VariableEntry(){}
+    VariableEntry(){}
 
     public boolean isVariable(){
         return true;
     }
 
+    public boolean isParameter(){
+        return Parameter;
+    }
+
     //getters and setters, since this is a framework. delete unused members later if any
     //no getter/setter for iFlag since already inherited from super
-
     public String getName() {
         return name;
+    }
+
+    public void setParameter(){
+        Parameter = !Parameter;
     }
 
     public void setName(String name) {
@@ -36,7 +43,7 @@ public class VariableEntry extends SymbolTableEntry{
         return address;
     }
 
-    public void setAddress(int address) {
+    void setAddress(int address) {
         this.address = address;
     }
 

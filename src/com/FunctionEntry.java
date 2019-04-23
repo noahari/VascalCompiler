@@ -16,6 +16,13 @@ public class FunctionEntry extends SymbolTableEntry {
         this.result = r;
     }
 
+    //Added constructor specifically for use in Action15
+    public FunctionEntry(String name, VariableEntry result){
+        this.name = name.toUpperCase();
+        this.parameterInfo = new ArrayList<SymbolTableEntry>();
+        this.result = result;
+    }
+
     boolean isFunction(){
         return true;
     }

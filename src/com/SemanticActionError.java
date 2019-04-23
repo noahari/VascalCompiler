@@ -19,6 +19,10 @@ public class SemanticActionError extends CompilerError {
                 throw new SemanticActionError("ID is not an Array \n Token caught: " + t.getType() + ", " + t.getVal());
             case 6:
                 throw new SemanticActionError("Invalid Procedure Error \n Token caught: " + t.getType() + ", " + t.getVal());
+            case 7:
+                throw new SemanticActionError("Invaild number of Parameters Error \n Token caught: " + t.getType() + ", " + t.getVal());
+            case 8:
+                throw new SemanticActionError("Invaild Function Error \n Token caught: " + t.getType() + ", " + t.getVal());
         }
         return null;
     }

@@ -1,0 +1,181 @@
+CODE
+1:  call main, 0
+2:  exit
+3:  PROCBEGIN GCD
+4:  alloc 8
+5:  print "A = "
+6:  outp ^%0
+7:  newl
+8:  print "B = "
+9:  outp ^%1
+10:  newl
+11:  move 0, %3
+12:  ble ^%1, %3, 14
+13:  goto 16
+14:  move ^%0, _11
+15:  goto 27
+16:  move ^%0, %2
+17:  bge %2, ^%1, 19
+18:  goto 22
+19:  sub %2, ^%1, %4
+20:  move %4, %2
+21:  goto 17
+22:  param %1
+23:  param @%2
+24:  call GCD, 2
+25:  move _11, %7
+26:  move %7, _11
+27:  free 8
+28:  PROCEND
+29:  PROCBEGIN THIS
+30:  alloc 13
+31:  move 1608, %4
+32:  ltof %4, %2
+33:  fsub ^%1, %2, %3
+34:  ltof ^%0, %5
+35:  beq %5, %3, 40
+36:  goto 37
+37:  ltof ^%0, %6
+38:  beq ^%1, %6, 49
+39:  goto 40
+40:  sub _1, _0, %7
+41:  move 0, %8
+42:  beq %7, %8, 44
+43:  goto 49
+44:  move , %9
+45:  sub _2, %9, %10
+46:  move 5, %12
+47:  div ^%0, %12, %11
+48:  stor %11, %10, _5
+49:  free 13
+50:  PROCEND
+51:  PROCBEGIN THAT
+52:  alloc 6
+53:  move 1, %2
+54:  move %2, %0
+55:  move 7.43, %3
+56:  move %3, %1
+57:  move _0, _1
+58:  param @%0
+59:  param @%1
+60:  call THIS, 2
+61:  free 6
+62:  PROCEND
+63:  PROCBEGIN main
+64:  alloc 55
+65:  move 1, _12
+66:  move _12, _2
+67:  move 5, _13
+68:  move _13, _1
+69:  move 5, _14
+70:  ble _2, _14, 72
+71:  goto 93
+72:  move 75, _15
+73:  ble _1, _15, 75
+74:  goto 93
+75:  move 1, _18
+76:  move _18, _16
+77:  sub _2, _16, _17
+78:  stor _1, _17, _5
+79:  move 1, _21
+80:  move _21, _19
+81:  sub _1, _19, _20
+82:  move 1, _24
+83:  move _24, _22
+84:  sub _2, _22, _23
+85:  load _5, _23, _25
+86:  move 20, _27
+87:  mul _25, _27, _26
+88:  stor _26, _20, _5
+89:  move 1, _29
+90:  add _2, _29, _28
+91:  move _28, _2
+92:  goto 69
+93:  inp _1
+94:  inp _0
+95:  print "X = "
+96:  outp _1
+97:  newl
+98:  print "Y = "
+99:  outp _0
+100:  newl
+101:  bgt _1, _0, 103
+102:  goto 111
+103:  param @_1
+104:  param @_0
+105:  call GCD, 2
+106:  move _11, _30
+107:  print "temp35 = "
+108:  outp _30
+109:  newl
+110:  goto 118
+111:  param @_4
+112:  param @_3
+113:  call GCD, 2
+114:  move _11, _31
+115:  print "temp36 = "
+116:  outp _31
+117:  newl
+118:  move 1, _34
+119:  move _34, _32
+120:  sub _1, _32, _33
+121:  move 6758, _35
+122:  stor _35, _33, _5
+123:  move 23E10, _36
+124:  move _36, _10
+125:  move 1, _39
+126:  move _39, _37
+127:  sub _1, _37, _38
+128:  load _5, _38, _40
+129:  print "temp45 = "
+130:  outp _40
+131:  newl
+132:  param @_1
+133:  param @_0
+134:  call GCD, 2
+135:  move _11, _41
+136:  param @_41
+137:  param @_10
+138:  call THIS, 2
+139:  move 1, _44
+140:  move _44, _42
+141:  sub _1, _42, _43
+142:  load _5, _43, _45
+143:  param @_45
+144:  param @_10
+145:  call THIS, 2
+146:  move 0, _46
+147:  call _-1, _46
+148:  move 1, _47
+149:  move _47, _2
+150:  move 5, _48
+151:  ble _2, _48, 153
+152:  goto 164
+153:  move 1, _51
+154:  move _51, _49
+155:  sub _2, _49, _50
+156:  load _5, _50, _52
+157:  print "temp57 = "
+158:  outp _52
+159:  newl
+160:  move 1, _54
+161:  add _2, _54, _53
+162:  move _53, _2
+163:  goto 150
+164:  print "H = "
+165:  outp _4
+166:  newl
+167:  print "I = "
+168:  outp _2
+169:  newl
+170:  print "X = "
+171:  outp _1
+172:  newl
+173:  print "Y = "
+174:  outp _0
+175:  newl
+176:  print "Z = "
+177:  outp _3
+178:  newl
+179:  free 55
+180:  PROCEND
