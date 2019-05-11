@@ -5,9 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Stack;
-import java.util.stream.Stream;
 
-public class CharStream {
+//This class handles reading characters from an input file and skipping whitespace
+class CharStream
+{
 
     private BufferedReader stream;
     private Stack<Character> buffer;
@@ -15,51 +16,61 @@ public class CharStream {
     private int linerr;
     private boolean whitepass;
 
-    public int getCharerr() {
+    int GetCharerr()
+    {
         return charerr;
     }
 
 
-    public int getLinerr() {
+    int GetLinerr()
+    {
         return linerr;
     }
 
-    public boolean getWhitepass() {
+    boolean GetWhitepass()
+    {
         return whitepass;
     }
 
-    public void setWhitepass(boolean whitepass) {
+    void SetWhitepass(boolean whitepass)
+    {
         this.whitepass = whitepass;
     }
 
 
-    public CharStream() {
+    CharStream()
+    {
         Stack<Character> buffer = new Stack<>();
     }
 
-    public CharStream(String file) throws FileNotFoundException {
+    CharStream(String file) throws FileNotFoundException
+    {
         stream = new BufferedReader(new FileReader(file));
         buffer = new Stack<>();
         charerr = 0;
         linerr = 1;
     }
 
-    public BufferedReader getStream() {
+    BufferedReader getStream()
+    {
         return stream;
     }
 
-    //used for lookahead
-    public char getChar() throws IOException {
+    //This gets lookahead characters
+    char GetChar() throws IOException
+    {
         char c;
         //checks if we passed a lookahead char to read
-        if (!buffer.empty()) {
+        if (!buffer.empty())
+        {
             c = buffer.pop();
         }
         //
-        else if (this.empty()){
+        else if (this.Empty())
+        {
             c = '!';
-        }
-        else{
+        } else
+        {
             //
             c = (char) this.stream.read();
         }
@@ -67,25 +78,30 @@ public class CharStream {
         return c;
     }
 
-    //pushback
-    public void pushback(char c) {
+    //Pushback
+    void Pushback(char c)
+    {
         this.buffer.push(c);
     }
 
-    //checks if stream is empty
-    public boolean empty() throws IOException {
+    //checks if stream is Empty
+    boolean Empty() throws IOException
+    {
         return !this.stream.ready();
     }
 
     //white checker helper
     //have to include \r since I run on windows
-    public Boolean whitecheck(char c) {
+    Boolean WhiteCheck(char c)
+    {
         return c == ' ' || c == '\n' || c == '\t' || c == '\r';
     }
 
     //skips whitespace
-    public char passWhite(char c) throws IOException, LexicalError {
-        switch (c) {
+    void PassWhite(char c) throws IOException, LexicalError
+    {
+        switch (c)
+        {
             case (' '):
                 break;
             case '\n':
@@ -95,9 +111,11 @@ public class CharStream {
             case '\t':
                 break;
             case '{':
-                while (c != '}') {
-                    c = getChar();
-                    if(this.empty()){
+                while (c != '}')
+                {
+                    c = GetChar();
+                    if (this.Empty())
+                    {
                         //Malformed comment: comment never closed
                         throw LexicalError.ErrorMsg(3, linerr, charerr);
                     }
@@ -105,6 +123,5 @@ public class CharStream {
                 break;
         }
         whitepass = true;
-        return c;
     }
 }

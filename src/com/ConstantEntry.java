@@ -1,33 +1,40 @@
 package com;
 
-public class ConstantEntry extends SymbolTableEntry {
+public class ConstantEntry extends SymbolTableEntry
+{
 
     private String name, type;
 
-    public ConstantEntry(String n, String t){
+    ConstantEntry(String n, String t)
+    {
         this.name = n.toUpperCase();
         this.type = t.toUpperCase();
     }
 
     //with all the mention of searching for constants I felt that addding this may prove useful
     //delete later if unused
-    boolean isConstant(){
+    boolean IsConstant()
+    {
         return true;
     }
 
-    public String getName() {
+    public String GetName()
+    {
         return name;
     }
 
-    public void setName(String name) {
+    public void SetName(String name)
+    {
         this.name = name;
     }
 
-    public String getType() {
+    public String GetType()
+    {
         return type;
     }
 
-    public void setType(String type) {
+    public void SetType(String type)
+    {
         this.type = type;
     }
 }

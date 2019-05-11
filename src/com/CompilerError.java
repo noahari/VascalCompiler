@@ -1,7 +1,9 @@
 package com;
 
-public class CompilerError extends Exception {
-    public CompilerError(String s){
+class CompilerError extends Exception
+{
+    CompilerError(String s)
+    {
         super(s);
     }
 }

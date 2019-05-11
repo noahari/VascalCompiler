@@ -1,6 +1,7 @@
 package com;
 
-public class ArrayEntry extends SymbolTableEntry {
+public class ArrayEntry extends SymbolTableEntry
+{
 
     private String name;
     private int address;
@@ -8,7 +9,8 @@ public class ArrayEntry extends SymbolTableEntry {
     private int upperBound;
     private int lowerBound;
 
-    public ArrayEntry(String name, int address, String type, int upperBound, int lowerBound){
+    ArrayEntry(String name, int address, String type, int upperBound, int lowerBound)
+    {
         this.name = name.toUpperCase();
         this.address = address;
         this.type = type.toUpperCase();
@@ -17,50 +19,61 @@ public class ArrayEntry extends SymbolTableEntry {
     }
 
 
-    boolean isArray(){
+    boolean IsArray()
+    {
         return true;
     }
 
     //getters and setters, since this is a framework. delete unused members later if any
     //no getter/setter for iFlag since already inherited from super
 
-    public String getName() {
+    public String GetName()
+    {
         return name;
     }
 
-    public int getAddress() {
+    public int GetAddress()
+    {
         return address;
     }
 
-    public String getType() {
+    public String GetType()
+    {
         return type;
     }
 
-    public int getUpperBound() {
+    int GetUpperBound()
+    {
         return upperBound;
     }
 
-    public int getLowerBound() {
+    int GetLowerBound()
+    {
         return lowerBound;
     }
 
-    public void setName(String name) {
+    public void SetName(String name)
+    {
         this.name = name;
     }
 
-    public void setAddress(int address) {
+    void SetAddress(int address)
+    {
         this.address = address;
     }
 
-    public void setType(String type) {
+    public void SetType(String type)
+    {
         this.type = type;
     }
 
-    public void setUpperBound(int upperBound) {
+    void SetUpperBound(int upperBound)
+    {
         this.upperBound = upperBound;
     }
 
-    public void setLowerBound(int lowerBound) {
+    void SetLowerBound(int lowerBound)
+    {
         this.lowerBound = lowerBound;
     }
 

@@ -1,13 +1,17 @@
 package com;
 
-public class ParseError extends CompilerError{
+public class ParseError extends CompilerError
+{
 
-    public ParseError(String s){
-            super(s);
-        }
+    public ParseError(String s)
+    {
+        super(s);
+    }
 
-    public static ParseError ErrorMsg(int ecode, String stacktop, String token, String line) throws ParseError{
-        switch(ecode){
+    public static ParseError ErrorMsg(int ecode, String stacktop, String token, String line) throws ParseError
+    {
+        switch (ecode)
+        {
             case 1:
                 throw new ParseError("UNRECOGNIZED TERMINAL: " + stacktop);
             case 2:

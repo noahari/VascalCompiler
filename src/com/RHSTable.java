@@ -7,31 +7,40 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class RHSTable {
+//Class to handle the reading and interpreting of a given Grammar
+//for a grammar, " " is epsilon
+
+public class RHSTable
+{
 
     private BufferedReader reader;
     ArrayList<ArrayList<String>> rhs;
 
-    private static boolean runningFromIntelliJ(){
+    private static boolean runningFromIntelliJ()
+    {
         String classPath = System.getProperty("java.class.path");
         return classPath.contains("idea_rt.jar");
     }
 
-    public RHSTable() throws FileNotFoundException{
+    public RHSTable() throws FileNotFoundException
+    {
         String file;
-        if(runningFromIntelliJ()){
+        if (runningFromIntelliJ())
+        {
             file = System.getProperty("user.dir") + "/src/com/LanguageResources/rhstable.txt";
-        }
-        else{
+        } else
+        {
             file = System.getProperty("user.dir") + "/com/LanguageResources/rhstable.txt";
         }
         reader = new BufferedReader(new FileReader(file));
         rhs = new ArrayList<>();
     }
 
-    public void readGrammar() throws IOException{
-        while(this.reader.ready()){
-            this.rhs.add(readGline());
+    void ReadGrammar() throws IOException
+    {
+        while (this.reader.ready())
+        {
+            this.rhs.add(ReadGline());
         }
     }
 
@@ -39,21 +48,24 @@ public class RHSTable {
     //There is always a space separating the left and right side of the grammar
     //A second space indicates an EPSILON
 
-    public ArrayList<String> readGline() throws IOException{
+    private ArrayList<String> ReadGline() throws IOException
+    {
         char last = '~';
         String tnt = "";
         boolean eflag = false;
         boolean sflag = false;
         ArrayList<String> linetokens = new ArrayList<>();
         //read until we pass the assign op for the line
-        while(!eflag){
-            if(last == '='){
+        while (!eflag)
+        {
+            if (last == '=')
+            {
                 //skip the implicit space that comes after the :=
                 this.reader.read();
                 //break while. using flag to allow for debugging
                 eflag = true;
-            }
-            else{
+            } else
+            {
                 //track to know when we are getting the actual derivation
                 char cur = (char) this.reader.read();
                 last = cur;
@@ -62,7 +74,8 @@ public class RHSTable {
         //read until full line complete
         tnt = this.reader.readLine();
         String[] temp = tnt.split(" ");
-        if((temp.length == 0) || (temp[0].equals("\n"))){
+        if ((temp.length == 0) || (temp[0].equals("\n")))
+        {
             String[] ep = {"EPSILON"};
             temp = ep;
         }
@@ -95,13 +108,14 @@ public class RHSTable {
         return linetokens;
     }
 
-    public void printGrammar(){
+    public void PrintGrammar()
+    {
         int length = this.rhs.size();
-        for(int i = 0; i < length; i++){
-            for(int j = 0; j < rhs.get(i).size(); j++){
-                System.out.println(rhs.get(i).get(j).toCharArray().length);
-                System.out.println(rhs.get(i).get(j));
+        for (ArrayList<String> rh : this.rhs)
+            for (String aRh : rh)
+            {
+                System.out.println(aRh.toCharArray().length);
+                System.out.println(aRh);
             }
-        }
     }
 }

@@ -3,6 +3,7 @@ package com;
 import java.util.Enumeration;
 import java.util.Vector;
 
+//A class to store all quads collectively
 public class Quadruples
 {
     //modified so gen can directly interact with quads, other lines modified accordingly
@@ -16,23 +17,23 @@ public class Quadruples
         //MFQ
         Quadruple dummy_quadruple = new Quadruple();
         dummy_quadruple = null;
-        Quadruple.add(nextQuad,dummy_quadruple);
+        Quadruple.add(nextQuad, dummy_quadruple);
         nextQuad++;
     }
 
-    public String getField(int quadIndex, int field)
+    String GetField(int quadIndex, int field)
     {
         //MFQ
-        return Quadruple.elementAt(quadIndex).getOps()[field];
+        return Quadruple.elementAt(quadIndex).GetOps()[field];
     }
 
-    public void setField(int quadIndex, int index, String field)
+    void SetField(int quadIndex, int index, String field)
     {
         //MFQ
-        Quadruple.elementAt(quadIndex).getOps()[index] = field;
+        Quadruple.elementAt(quadIndex).GetOps()[index] = field;
     }
 
-    public int getNextQuad()
+    int GetNextQuad()
     {
         return nextQuad;
     }
@@ -45,17 +46,18 @@ public class Quadruples
     public String[] getQuad(int index)
     {
         //MFQ
-        return Quadruple.elementAt(index).getOps();
+        return Quadruple.elementAt(index).GetOps();
     }
 
     //amended to interact directly with Quad type
-    public void addQuad(Quadruple quad)
+    void AddQuad(Quadruple quad)
     {
         Quadruple.add(nextQuad, quad);
         nextQuad++;
     }
 
-    public void print()
+    //prints out ALL quad values
+    void Print()
     {
         int quadLabel = 1;
         String separator;
@@ -68,14 +70,15 @@ public class Quadruples
         while (e.hasMoreElements())
         {
             Quadruple nextQuad = e.nextElement();
-            String[] quadOps = nextQuad.getOps();
+            String[] quadOps = nextQuad.GetOps();
             System.out.print(quadLabel + ":  " + quadOps[0]);
-            for(int i = 1; i<nextQuad.getQuadSize(); i++){
+            for (int i = 1; i < nextQuad.GetQuadSize(); i++)
+            {
                 System.out.print(" " + quadOps[i]);
-                if(i != nextQuad.getQuadSize() - 1){
+                if (i != nextQuad.GetQuadSize() - 1)
+                {
                     System.out.print(",");
-                }
-                else System.out.print("");
+                } else System.out.print("");
             }
             System.out.println("");
             quadLabel++;

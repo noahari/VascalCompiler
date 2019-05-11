@@ -2,70 +2,115 @@ package com;
 
 import java.util.List;
 
-public class SymbolTableEntry {
+public class SymbolTableEntry
+{
 
     //global flag to determine whether an identifier needs to be inserted in the symbol table
     private boolean iFlag = false;
     private boolean Parameter = false;
 
-    boolean isConstant(){
-        return false;
-    }
-    boolean isVariable(){
-        return false;
-    }
-    boolean isProcedure(){
-        return false;
-    }
-    boolean isFunction(){
-        return false;
-    }
-    boolean isFunctionResult(){
-        return false;
-    }
-    boolean isParameter(){
-        return false;
-    }
-    boolean isArray(){
-        return false;
-    }
-    boolean isReserved(){
+    boolean IsConstant()
+    {
         return false;
     }
 
-    String getName(){return null;}
+    boolean IsVariable()
+    {
+        return false;
+    }
 
-    String getType(){return null;}
+    boolean IsProcedure()
+    {
+        return false;
+    }
 
-    int getAddress(){return -1;}
+    boolean IsFunction()
+    {
+        return false;
+    }
 
-    public boolean getiFlag(){
+    boolean IsFunctionResult()
+    {
+        return false;
+    }
+
+    boolean IsParameter()
+    {
+        return false;
+    }
+
+    boolean IsArray()
+    {
+        return false;
+    }
+
+    boolean IsReserved()
+    {
+        return false;
+    }
+
+    String GetName()
+    {
+        return null;
+    }
+
+    String GetType()
+    {
+        return null;
+    }
+
+    int GetAddress()
+    {
+        return -1;
+    }
+
+    public boolean GetiFlag()
+    {
         return iFlag;
     }
 
-    public void iFlagToggle(){
+    public void iFlagToggle()
+    {
         iFlag = !iFlag;
     }
 
-    public SymbolTableEntry getResult(){return null;}
+    public SymbolTableEntry GetResult()
+    {
+        return null;
+    }
 
-    public void setResult(){}
+    public void SetResult()
+    {
+    }
 
-    public void setType(String s){}
+    public void SetType(String s)
+    {
+    }
 
-    public void setResultType(String s){}
+    public void SetResultType(String s)
+    {
+    }
 
-    public void setParameterCount(int i){}
+    public void SetParameterCount(int i)
+    {
+    }
 
-    public void addParam(SymbolTableEntry s){}
+    public void AddParam(SymbolTableEntry s)
+    {
+    }
 
-    public void setParameter(){
+    public void SetParameter()
+    {
         this.Parameter = !Parameter;
     }
 
-    public int getParameterCount(){return -1;}
+    public int GetParameterCount()
+    {
+        return -1;
+    }
 
-    public List<SymbolTableEntry> getParameterInfo(){
+    public List<SymbolTableEntry> GetParameterInfo()
+    {
         return null;
     }
 }

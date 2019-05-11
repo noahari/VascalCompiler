@@ -1,13 +1,13 @@
 package com;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class ParseTable {
+public class ParseTable
+{
 
     private BufferedReader reader;
     ArrayList<String> nonterminals;
@@ -18,17 +18,20 @@ public class ParseTable {
     //999 is error, negative is epsilon production
     //otherwise push while pop
 
-    private static boolean runningFromIntelliJ(){
+    private static boolean runningFromIntelliJ()
+    {
         String classPath = System.getProperty("java.class.path");
         return classPath.contains("idea_rt.jar");
     }
 
-    public ParseTable() throws IOException {
+    public ParseTable() throws IOException
+    {
         String file;
-        if(runningFromIntelliJ()){
+        if (runningFromIntelliJ())
+        {
             file = System.getProperty("user.dir") + "/src/com/LanguageResources/parsetable.txt";
-        }
-        else{
+        } else
+        {
             file = System.getProperty("user.dir") + "/com/LanguageResources/parsetable.txt";
         }
         reader = new BufferedReader(new FileReader(file));
@@ -39,28 +42,34 @@ public class ParseTable {
 
     //assumes all nonterminals listed at top of the file in one line
     //as the x axis
-    public void readNonterm() throws IOException{
+    private void ReadNonterm() throws IOException
+    {
         String temp = this.reader.readLine();
         String[] tempa = temp.split(",");
         this.nonterminals.addAll(Arrays.asList(tempa));
     }
 
-    public void readPtable() throws IOException{
-        readNonterm();
-        while(this.reader.ready()){
-            readPline();
+    void ReadPtable() throws IOException
+    {
+        ReadNonterm();
+        while (this.reader.ready())
+        {
+            ReadPline();
         }
 
     }
 
-    public void readPline()throws IOException{
+    private void ReadPline() throws IOException
+    {
         char next = '~';
         ArrayList<Integer> dcodes = new ArrayList<>();
         String tnt = "";
         //first, read until comma to get y axis terminal
-        while(next != ','){
+        while (next != ',')
+        {
             next = (char) this.reader.read();
-            if(next != ','){
+            if (next != ',')
+            {
                 tnt += next;
             }
         }
@@ -70,7 +79,8 @@ public class ParseTable {
         String temps = this.reader.readLine();
         //getting redundant, can make helper
         String[] tempa = temps.split(",");
-        for(String iTemp : tempa){
+        for (String iTemp : tempa)
+        {
             //System.out.println("dcode: " + iTemp);
             dcodes.add(Integer.parseInt(iTemp));
         }

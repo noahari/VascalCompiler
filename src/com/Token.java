@@ -1,55 +1,70 @@
 package com;
 
-public class Token {
+//A class to construct language valid tokens
+class Token
+{
     private String type;
     private String val;
 
 
-    Token(String type, String val){
+    Token(String type, String val)
+    {
         this.type = type;
         this.val = val;
     }
 
-    Token(String type){
+    Token(String type)
+    {
         this.type = type;
         this.val = null;
     }
 
-    Token(){
+    Token()
+    {
         this.type = null;
         this.val = null;
     }
 
-    void printToken(){
-        if(this.val == null){
+    void PrintToken()
+    {
+        if (this.val == null)
+        {
             System.out.println("['" + this.type + "', 'None']");
-        }
-        else{
+        } else
+        {
             System.out.println("['" + this.type + "', '" + this.val + "']");
         }
     }
 
-    String getType(){
+    String GetType()
+    {
         return this.type;
     }
 
-    public String getVal(){
+    String GetVal()
+    {
         return this.val;
     }
 
-    void setType(String s){
+    void SetType(String s)
+    {
         this.type = s;
     }
 
-    void setVal(String s){
+    void SetVal(String s)
+    {
         this.val = s;
     }
 
-    String getOpCode(){
+    //Helper function to determine the TVI opcode of a Token
+    String GetOpCode()
+    {
         String opCode = null;
-        switch(this.type){
+        switch (this.type)
+        {
             case "ADDOP":
-                switch(this.val){
+                switch (this.val)
+                {
                     case "1":
                         opCode = "add";
                         break;
@@ -59,7 +74,8 @@ public class Token {
                 }
                 break;
             case "MULOP":
-                switch(this.val){
+                switch (this.val)
+                {
                     case "1":
                         opCode = "mul";
                         break;
@@ -74,7 +90,8 @@ public class Token {
                 }
                 break;
             case "RELOP":
-                switch(this.val){
+                switch (this.val)
+                {
                     case "1":
                         opCode = "beq";
                         break;
@@ -96,15 +113,19 @@ public class Token {
                 }
                 break;
         }
-            return opCode;
+        return opCode;
     }
 
-    void clear(){
+    //wipes a token clean
+    void clear()
+    {
         this.type = null;
         this.val = null;
     }
 
-    int tokenToInt(){
+    //converts a token to an int
+    int TokenToInt()
+    {
         return Integer.parseInt(val);
     }
 

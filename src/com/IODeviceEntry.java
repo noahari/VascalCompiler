@@ -1,18 +1,22 @@
 package com;
 
-public class IODeviceEntry extends SymbolTableEntry {
+public class IODeviceEntry extends SymbolTableEntry
+{
 
     private String name;
 
-    public IODeviceEntry(String s){
+    IODeviceEntry(String s)
+    {
         this.name = s;
     }
 
-    public String getName() {
+    public String GetName()
+    {
         return name;
     }
 
-    public void setName(String name) {
+    public void SetName(String name)
+    {
         this.name = name;
     }
 }

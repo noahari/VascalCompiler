@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 //A quadruple contains one single TVI Code and all its associated ops
 //called a quad bc at most 4 ops
-public class Quadruple {
+public class Quadruple
+{
 
     //originally used arraylist but since
     // there is a max size array is just faster
@@ -12,9 +13,13 @@ public class Quadruple {
     private int opCount = 0;
 
     //null generic instantiator
-    Quadruple(){}
+    Quadruple()
+    {
+    }
 
-    public Quadruple(String op1){
+    //Constructors for each possible number of arguments
+    public Quadruple(String op1)
+    {
 
         opCount = 1;
         ops = new String[1];
@@ -22,7 +27,8 @@ public class Quadruple {
         ops[0] = (op1);
     }
 
-    public Quadruple(String op1, String op2){
+    public Quadruple(String op1, String op2)
+    {
 
         opCount = 2;
         ops = new String[2];
@@ -31,7 +37,8 @@ public class Quadruple {
         ops[1] = (op2);
     }
 
-    public Quadruple(String op1, String op2, String op3){
+    public Quadruple(String op1, String op2, String op3)
+    {
 
         opCount = 3;
         ops = new String[3];
@@ -41,7 +48,8 @@ public class Quadruple {
         ops[2] = (op3);
     }
 
-    public Quadruple(String op1, String op2, String op3, String op4){
+    public Quadruple(String op1, String op2, String op3, String op4)
+    {
 
         opCount = 4;
         ops = new String[4];
@@ -56,17 +64,22 @@ public class Quadruple {
     //No setter for quad size since it is set as we go
     //The same goes for get ops since any setter access would
     //be unnecessary/create an error
-    public int getQuadSize(){
+    int GetQuadSize()
+    {
         return opCount;
     }
 
-    public String[] getOps(){
+    String[] GetOps()
+    {
         return ops;
     }
 
-    public void printTVI(){
+    //prints out TVI code of a given Quad
+    public void printTVI()
+    {
         System.out.print("QUAD: ");
-        for(String op : ops){
+        for (String op : ops)
+        {
             System.out.print(op + " ");
         }
         System.out.println("");

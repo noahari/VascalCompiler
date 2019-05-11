@@ -1,5 +1,6 @@
 package com;
 
-public enum EType {
-        ARITHMETIC, RELATIONAL
+public enum EType
+{
+    ARITHMETIC, RELATIONAL
 }

@@ -1,6 +1,6 @@
 # Vascal Compiler
 
-##Version 1.0
+##Version 1.1
 This version now does not print stack traces and other backend information 
 so that the output TVI code may be directly piped into a file for ease of
 running a compiled program. This TVI code is built to run on the Vassar Interpreter.
@@ -11,31 +11,20 @@ To run this file:
 
 - cd into src/com and javac *.java
 
-- cd back out to src and run com.Parser with appropriate flags
-
--
-
-- The default test file is now ult.txt (ultimate.vas). 
-Like previous versions, all you need to do to add test files 
-is add them to the directory src/com/LanguageResources and type their name in as 
-arguments to running com.Parser 
-(e.g. "java com.Parser simple.txt" would Parse a file called simple.txt in the LanguageResources folder,
-adding the only currently implemented flag -t allows you to print stack traces as well:
-java com.Parser simple.txt -t, or java com.Parser -t will trace the default file).
-
-- This can now be run in intelliJ without changing code pointing to paths.
-
-*NOTE 1: TVI code may differ from other compilations due to implementation of modulus. 
-The resulting TVI code is still equally effective. The additional lines are equivalent moves,
-and any differences in register access and outp/print follow those differences. This causes
-an increase in memory allocation and extraneous moves, so assuming there is time this may 
-be optimized out in future versions.*
-
-*NOTE 2: Sometimes when moving between OS or systems, critical spaces in the grammar get optimized away.
-The compiler demands epsilon be represented as exactly ":=  ", so simply adding a special character and editing the
-RHS table may fix this. Causes an array out of bounds exception at start of execution*
+- cd back out to src and run com.Main with appropriate flags
 
 ## Changelog:
+
+###Version 1.1
+>Added comments for all functions except obvious getters, setters, and constructors
+
+>Formatted code according to Style Guide
+
+>Reorganized encapsulation so there is a Compiler class that handles the Parser
+which in turn handles the Lexer and Semantic Actions.
+
+>Added a Main file from which the Compiler is built, allowing for possible
+multiple compilers running at once and exporting this package as an executable
 
 ###Version 1.0
 >Implemented additional versions of generate to fix errors when we can just pass hard values
@@ -126,6 +115,42 @@ distinction.
  
  
 ## Historical Version Notes
+
+##Version 1.0
+This version now does not print stack traces and other backend information 
+so that the output TVI code may be directly piped into a file for ease of
+running a compiled program. This TVI code is built to run on the Vassar Interpreter.
+
+To run this file:
+
+- Pull the files from github maintaining the directory structure
+
+- cd into src/com and javac *.java
+
+- cd back out to src and run com.Parser with appropriate flags
+
+-
+
+- The default test file is now ult.txt (ultimate.vas). 
+Like previous versions, all you need to do to add test files 
+is add them to the directory src/com/LanguageResources and type their name in as 
+arguments to running com.Parser 
+(e.g. "java com.Parser simple.txt" would Parse a file called simple.txt in the LanguageResources folder,
+adding the only currently implemented flag -t allows you to print stack traces as well:
+java com.Parser simple.txt -t, or java com.Parser -t will trace the default file).
+
+- This can now be run in intelliJ without changing code pointing to paths.
+
+*NOTE 1: TVI code may differ from other compilations due to implementation of modulus. 
+The resulting TVI code is still equally effective. The additional lines are equivalent moves,
+and any differences in register access and outp/print follow those differences. This causes
+an increase in memory allocation and extraneous moves, so assuming there is time this may 
+be optimized out in future versions.*
+
+*NOTE 2: Sometimes when moving between OS or systems, critical spaces in the grammar get optimized away.
+The compiler demands epsilon be represented as exactly ":=  ", so simply adding a special character and editing the
+RHS table may fix this. Causes an array out of bounds exception at start of execution*
+
 
 ##Version 0.75
 To run this file:
