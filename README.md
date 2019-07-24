@@ -1,6 +1,6 @@
 # Vascal Compiler
 
-##Version 1.1
+## Version 1.1
 This version now does not print stack traces and other backend information 
 so that the output TVI code may be directly piped into a file for ease of
 running a compiled program. This TVI code is built to run on the Vassar Interpreter.
