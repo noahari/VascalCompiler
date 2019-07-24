@@ -15,7 +15,7 @@ To run this file:
 
 ## Changelog:
 
-###Version 1.1
+### Version 1.1
 >Added comments for all functions except obvious getters, setters, and constructors
 
 >Formatted code according to Style Guide
@@ -26,7 +26,7 @@ which in turn handles the Lexer and Semantic Actions.
 >Added a Main file from which the Compiler is built, allowing for possible
 multiple compilers running at once and exporting this package as an executable
 
-###Version 1.0
+### Version 1.0
 >Implemented additional versions of generate to fix errors when we can just pass hard values
 
 >Implemented getSTEPrefix, getParamPrefix, and getSTEAddress
